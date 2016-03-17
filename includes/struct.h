@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/17 13:55:48 by frmarinh          #+#    #+#             */
-/*   Updated: 2016/03/17 14:25:57 by jguyet           ###   ########.fr       */
+/*   Created: 2016/03/17 14:08:59 by jguyet            #+#    #+#             */
+/*   Updated: 2016/03/17 14:11:16 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef STRUCT_H
+# define STRUCT_H
 
-int			ft_printf(const char *s, ...)
+typedef struct	s_string
 {
-	int	i;
-	int	*elipse;
+	char		*s;
+	char		**final;
+}				t_string;
 
-	i = 1;
-	elipse = (int *)&s;
-	ft_putstr("blabla");
-	return (0);
-}
+#endif

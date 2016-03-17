@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/17 13:55:48 by frmarinh          #+#    #+#             */
-/*   Updated: 2016/03/17 14:25:57 by jguyet           ###   ########.fr       */
+/*   Created: 2016/03/17 14:11:36 by jguyet            #+#    #+#             */
+/*   Updated: 2016/03/17 14:12:48 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PRINTF_H
+# define PRINTF_H
 
-int			ft_printf(const char *s, ...)
-{
-	int	i;
-	int	*elipse;
+int			ft_printf(const char *s, ...);
 
-	i = 1;
-	elipse = (int *)&s;
-	ft_putstr("blabla");
-	return (0);
-}
+#endif
