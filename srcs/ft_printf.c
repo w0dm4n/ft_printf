@@ -10,15 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
+
+int			get_argument(const char *s)
+{
+	int i;
+	int args;
+
+	i = 0;
+	args = 0;
+	while (s[i])
+	{
+		if (s[i] == '%')
+			args++;
+		i++;
+	}
+	return (args);
+}
 
 int			ft_printf(const char *s, ...)
 {
-	int	i;
-	int	*elipse;
+	va_list		list;
+	int			i;
+	char		*test;
+	t_string	*string;
 
-	i = 1;
-	elipse = (int *)&s;
-	ft_putstr("blabla");
+	if (!(string = malloc(sizeof(t_string))))
+		return (-1);
+	va_start(list, (char*)s);
+	parse_flags(string, 0, 0);
+	va_end(list);
 	return (0);
 }

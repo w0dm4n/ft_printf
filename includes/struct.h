@@ -17,6 +17,8 @@ typedef struct	s_string
 {
 	char		*s;
 	char		**final;
+	va_list		list;
+	int			args_size;
 }				t_string;
 
 #endif

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   test_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/17 14:11:36 by jguyet            #+#    #+#             */
-/*   Updated: 2016/03/17 14:12:48 by jguyet           ###   ########.fr       */
+/*   Created: 2016/03/17 15:32:16 by frmarinh          #+#    #+#             */
+/*   Updated: 2016/03/17 15:33:16 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-#include "libft.h"
-#include <stdarg.h>
+#include "printf.h"
 
-# define FLAG string->s + (i + 1)
+int		main(void)
+{
+	int res = 0;
 
-int			ft_printf(const char *s, ...);
-
-#endif
+	res = ft_printf("%s%d%s%s", "bonjour", 250, "test2", "test3");
+	return (0);
+}

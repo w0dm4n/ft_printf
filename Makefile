@@ -122,7 +122,7 @@ all:
 	@gcc -I includes -c  $(SRC_ALL) $(FLAG)
 	@ar rc $(NAME) $(SRC_LFTO) $(SRC_PRINTFO)
 	@ranlib $(NAME)
-
+	@gcc test_printf.c -L . -lftprintf -I includes/ -o test_printf
 
 clean:
 	@rm -rf $(OALL)
