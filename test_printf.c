@@ -17,6 +17,6 @@ int		main(void)
 	int res = 0;
 	char test[1024] = "test";
 
-	res = ft_printf("j'ai %ld ans, je m'appel %s, char %c", 180000000000000, NULL, 'b');
+	res = ft_printf("j'ai %ld ans, je m'appel %s, char %c", 180000, NULL, 'b');
 	return (0);
 }
