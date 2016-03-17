@@ -12,7 +12,7 @@
 
 #ifndef STRUCT_H
 # define STRUCT_H
-
+#include <stdarg.h>
 typedef struct	s_string
 {
 	char		*s;

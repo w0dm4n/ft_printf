@@ -18,6 +18,7 @@ PRINTF_PATH = ./srcs/
 
 SRC_PRINTF = \
 		ft_printf.c\
+		handler.c
 		
 SRC_LFT = \
 		ft_strlen.c\

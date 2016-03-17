@@ -30,15 +30,16 @@ int			get_argument(const char *s)
 
 int			ft_printf(const char *s, ...)
 {
-	va_list		list;
-	int			i;
-	char		*test;
 	t_string	*string;
 
 	if (!(string = malloc(sizeof(t_string))))
 		return (-1);
-	va_start(list, (char*)s);
+	if (!(string->final = (char**)malloc(sizeof(char*))))
+		return (-1);
+	string->s = (char*)s;
+	string->args_size = get_argument(s);
+	va_start(string->list, (char*)s);
 	parse_flags(string, 0, 0);
-	va_end(list);
+	va_end(string->list);
 	return (0);
 }

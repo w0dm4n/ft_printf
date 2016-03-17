@@ -22,23 +22,23 @@ int			parse_flags(t_string *string, int i, int final_i)
 	while (string->s[i] && string->s[i] != '%')
 		i++;
 	string->final[final_i] = ft_strndup(string->s + save, i - save);
-	if (string->s[i] == '%'  && string->s[i + 1])
+	if (string->s[i] && string->s[i] == '%' && string->s[i + 1])
 	{
 		if (!ft_strcmp(FLAG, "s"))
 		{
-			string->final[final_i] = va_arg(list, char*);
+			string->final[final_i] = va_arg(string->list, char*);
 		}
 		else if (!ft_strcmp(FLAG, "c"))
 		{
 			string->final[final_i] = ft_strnew(1);
-			string->final[final_i][0] = va_arg(list, char);
+			string->final[final_i][0] = va_arg(string->list, int);
 		}
 		else if (!ft_strcmp(FLAG, "d"))
 		{
-			string->final[final_i] = ft_atoi(va_arg(list, int));
+			string->final[final_i] = ft_itoa(va_arg(string->list, int));
 		}
 	}
 	else
 		return (final_i);
-	parse_flags(string, i + 1, final_i + 1);
+	return (parse_flags(string, i + 1, final_i + 1));
 }
