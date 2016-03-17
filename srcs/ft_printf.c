@@ -31,15 +31,23 @@ int			get_argument(const char *s)
 int			ft_printf(const char *s, ...)
 {
 	t_string	*string;
+	int			res;
+	int			i;
 
+	i = 0;
 	if (!(string = malloc(sizeof(t_string))))
 		return (-1);
-	if (!(string->final = (char**)malloc(sizeof(char*))))
+	if (!(string->final = (char**)malloc(sizeof(char*) * 100)))
 		return (-1);
 	string->s = (char*)s;
 	string->args_size = get_argument(s);
 	va_start(string->list, (char*)s);
-	parse_flags(string, 0, 0);
+	res = parse_flags(string, 0, 0);
 	va_end(string->list);
+	while (i < res)
+	{
+		ft_putstr(string->final[i]);
+		i++;
+	}
 	return (0);
 }
