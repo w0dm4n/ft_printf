@@ -6,14 +6,13 @@
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:55:48 by frmarinh          #+#    #+#             */
-/*   Updated: 2016/03/17 13:57:01 by frmarinh         ###   ########.fr       */
+/*   Updated: 2016/03/17 14:00:44 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		main(void)
+int			ft_printf(const char *s, ...)
 {
-	write(1, "test", 4);
-	return (-1);
+	return(0);
 }
