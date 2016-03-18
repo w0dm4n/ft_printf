@@ -14,14 +14,9 @@
 
 #include "printf.h"
 
-int			sub_flags(t_string *string, int i)
+static int	sub(t_string *string, int i)
 {
-	int		u;
-	char	*n;
-	char	*tmp;
-
-	string->sub_flags = 0;
-	while ((string->s[i + 1] && string->s[i + 1] == '#')
+		while ((string->s[i + 1] && string->s[i + 1] == '#')
 			|| (string->s[i + 1] && string->s[i + 1] == '-')
 			|| (string->s[i + 1] && string->s[i + 1] == '+'))
 		{
@@ -33,8 +28,20 @@ int			sub_flags(t_string *string, int i)
 				string->sub_flags += SUB_SUP;
 			i++;
 		}
+	return (i);
+}
+
+int			sub_flags(t_string *string, int i)
+{
+	int		u;
+	char	*n;
+	char	*tmp;
+
+	string->sub_flags = 0;
+	i = sub(string, i);
 	u = i;
 	tmp = ft_strnew(1);
+	n = ft_strnew(1);
 	while (string->s[u + 1] && string->s[u + 1] >= '0' && string->s[u + 1] <= '9')
 	{
 		tmp[0] = string->s[u + 1];
@@ -47,5 +54,7 @@ int			sub_flags(t_string *string, int i)
 		}
 	}
 	string->sub_num = n;
+	i = u;
+	i = sub(string, i);
 	return (i);
 }

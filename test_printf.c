@@ -11,12 +11,16 @@
 /* ************************************************************************** */
 
 #include "printf.h"
+#include <wchar.h>
 
 int		main(void)
 {
 	int res = 0;
-	char test[1024] = "test";
-
-	res = ft_printf("j'ai %ld ans, je m'appel %s, char %c", 180000, NULL, 'b');
+	ft_printf("%#4d\n", 99);
+	ft_printf("%#4d\n", 101);
+	ft_printf("%#4d\n", 1000);
+	ft_printf("%#4d\n", 1020);
+	//res = printf("%#1d", 100);
+	//printf("\n\n%d", res);
 	return (0);
 }

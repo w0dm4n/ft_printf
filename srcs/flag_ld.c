@@ -16,9 +16,9 @@
 
 int			flag_ld(t_string *string, int i)
 {
-	unsigned int	tmp;
+	long unsigned int	tmp;
 
-	tmp = va_arg(string->list, unsigned int);
+	tmp = va_arg(string->list, long unsigned int);
 	if (string->sub_flags & SUB_SUP)
 	{
 		if (tmp > 0)
