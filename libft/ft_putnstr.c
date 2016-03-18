@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/17 14:08:59 by jguyet            #+#    #+#             */
-/*   Updated: 2016/03/17 14:11:16 by jguyet           ###   ########.fr       */
+/*   Created: 2016/03/18 13:56:45 by jguyet            #+#    #+#             */
+/*   Updated: 2016/03/18 14:32:38 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
-# include <stdarg.h>
+#include <unistd.h>
 
-typedef struct		s_string
+void		ft_putnstr(const char *s, unsigned int f)
 {
-	char			*s;
-	va_list			list;
-	unsigned int	res;
-	short			sub_flags;
-	char			*sub_num;
-}					t_string;
-
-#endif
+	write(1, s, f);
+}

@@ -12,14 +12,35 @@
 
 #ifndef PRINTF_H
 # define PRINTF_H
-#include "libft.h"
-#include "struct.h"
-#include <stdarg.h>
-#include <stdlib.h>
-
-# define FLAG string->s + (i + 1)
+# include "libft.h"
+# include "struct.h"
+# include <stdarg.h>
+# include <stdlib.h>
 
 int			ft_printf(const char *s, ...);
-int			parse_flags(t_string *string, int i, int final_i);
 
+# ifdef PRINTF_PROG
+
+#  define FLAG string->s + (i + 1)
+#  define SUB_SHARP 1024
+#  define SUB_ZERO 2048
+#  define SUB_INF 4096
+#  define SUB_SUP 8192
+#  define DELIMITER '%'
+/*
+ **			handler.c
+ */
+int			parse_flags(t_string *string, int i);
+/*
+ *			sub_flags.c
+ */
+int			sub_flags(t_string *string, int i);
+/*
+ *			Total_flags :
+ */
+int			flag_ld(t_string *string, int i);
+int			flag_d(t_string *string, int i);
+int			flag_s(t_string *string, int i);
+int			flag_c(t_string *string, int i);
+# endif
 #endif

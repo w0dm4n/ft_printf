@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   flag_d.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/17 13:55:48 by frmarinh          #+#    #+#             */
-/*   Updated: 2016/03/17 14:25:57 by jguyet           ###   ########.fr       */
+/*   Created: 2016/03/18 14:28:09 by jguyet            #+#    #+#             */
+/*   Updated: 2016/03/18 14:28:10 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 #include "printf.h"
 
-int			ft_printf(const char *s, ...)
+int			flag_d(t_string *string, int i)
 {
-	t_string	*string;
+	int		tmp;
 
-	if (!(string = (t_string *)malloc(sizeof(t_string))))
-		return (-1);
-	string->s = (char*)s;
-	string->res = 0;
-	va_start(string->list, (char*)s);
-	parse_flags(string, 0);
-	va_end(string->list);
-	return (string->res);
+	tmp = va_arg(string->list, int);
+	if (string->sub_flags & SUB_SUP)
+	{
+		if (tmp > 0)
+			ft_putchar('+');
+		else if (tmp < 0)
+			ft_putchar('-');
+	}
+	ft_putnbr(tmp);
+	return (i + 2);
 }
+
