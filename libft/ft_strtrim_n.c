@@ -31,12 +31,10 @@ static int		ft_strchrnoprint2(char *s, int i)
 char			*ft_strtrim_n(char const *s)
 {
 	char	*result;
-	int		start;
 	int		end;
 
 	if (!s)
 		return (NULL);
-	start = 0;
 	while (*s == '\n')
 		s++;
 	if (!*s)

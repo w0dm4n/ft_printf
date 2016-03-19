@@ -14,10 +14,8 @@
 
 int		ft_strnchr(char const *s, int c, int nbr)
 {
-	char	*tmp;
 	int		i;
 
-	tmp = (char*)s;
 	i = 0;
 	while (s[i])
 	{
