@@ -28,7 +28,7 @@ OBJDIR		=	.objs/
 
 INCDIR		=	includes/
 
-LIBFTDIR	=	lft_tmp/
+LIBFTDIR	=	libftprintf/
 
 INCDIRLIBFT	=	$(LIBFTDIR)/includes/
 
@@ -66,6 +66,7 @@ clean:
 	else																	\
 		printf "\r";														\
 	fi
+	make -C $(LIBFTDIR) fclean
 
 fclean:		clean
 	if [[ `rm $(NAME) &> /dev/null 2>&1; echo $$?` == "0" ]]; then			\
@@ -74,8 +75,12 @@ fclean:		clean
 	else																	\
 		printf "\r";														\
 	fi
+	make -C $(LIBFTDIR) clean
 
-re:			fclean all
+libre:
+	make -C $(LIBFTDIR) re
+
+re:			fclean libre all
 
 .PHONY:		fclean clean re
 
