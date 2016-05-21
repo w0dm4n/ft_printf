@@ -3,91 +3,82 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jguyet <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/11/23 12:22:35 by jguyet            #+#    #+#              #
-#    Updated: 2016/03/17 15:00:06 by jguyet           ###   ########.fr        #
+#    Created: 2016/03/25 15:18:38 by jguyet            #+#    #+#              #
+#    Updated: 2016/03/30 10:16:32 by jguyet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OBJ_DIR = ./.obj/
+NAME		=	test
 
-LIBFT_PATH = ./libft/
+NAMEBASE    =   $(shell basename $(NAME) .a)
 
-PRINTF_PATH = ./srcs/
+LENGTHNAME	=	`printf "%s" $(NAMEBASE) | wc -c`
 
-SRC_PRINTF = \
-		ft_printf.c			handler.c\
-		sub_flags.c			flag_c.c\
-		flag_s.c			flag_ld.c\
-		flag_d.c
-		
-SRC_LFT = \
-		ft_strlen.c			ft_putchar.c			ft_putstr.c\
-		ft_putnbr.c			ft_putchar_fd.c			ft_putstr_fd.c\
-		ft_putnbr_fd.c		ft_strdup.c				ft_strcmp.c\
-		ft_atoi.c			ft_memset.c				ft_bzero.c\
-		ft_memcpy.c			ft_memccpy.c			ft_memmove.c\
-		ft_memchr.c			ft_memcmp.c				ft_strcpy.c\
-		ft_strncpy.c		ft_strcat.c				ft_strncat.c\
-		ft_strlcat.c		ft_strchr.c				ft_strrchr.c\
-		ft_strstr.c			ft_strnstr.c			ft_strncmp.c\
-		ft_isalpha.c		ft_isdigit.c			ft_isalnum.c\
-		ft_isascii.c		ft_isprint.c			ft_toupper.c\
-		ft_tolower.c		ft_memalloc.c			ft_memdel.c\
-		ft_strnew.c			ft_strdel.c				ft_strclr.c\
-		ft_striter.c		ft_striteri.c			ft_strmap.c\
-		ft_strmapi.c		ft_strequ.c				ft_strnequ.c\
-		ft_strsub.c			ft_strjoin.c			ft_strtrim.c\
-		ft_strsplit.c		ft_putendl.c			ft_putendl_fd.c\
-		ft_itoa.c			ft_lstnew.c				ft_lstdelone.c\
-		ft_lstdel.c			ft_lstadd.c				ft_lstiter.c\
-		ft_lstmap.c			ft_strnchr.c			ft_strndup.c\
-		ft_lstsplit.c		ft_itoabase.c			ft_putnbr_back.c\
-		ft_putlst.c			ft_lenbychar.c			ft_lstaddend.c\
-		ft_add_end_int.c	ft_count_char.c			ft_strtrim_n.c\
-		ft_putnstr.c
+MAX_COLS	=	$$(echo "$$(tput cols)-20-$(LENGTHNAME)"|bc)
 
-SRC_PRINTFO = $(SRC_PRINTF:.c=.o)
+CC			=	gcc
 
-SRC_LFTO = $(SRC_LFT:.c=.o)
+FLAGS		=	-Wall -Wextra -Werror -O3 -ggdb
 
-SRC_LFT_F = $(addprefix $(LIBFT_PATH),$(SRC_LFT))
+SRCDIR		=	
 
-SRC_PRINTF_F = $(addprefix $(PRINTF_PATH),$(SRC_PRINTF))
+OBJDIR		=	.objs/
 
-SRC_ALL = $(SRC_LFT_F) $(SRC_PRINTF_F)
+INCDIR		=	includes/
 
-OALL = $(SRC_LFTO) $(SRC_PRINTFO)
+LIBFTDIR	=	lft_tmp/
 
-# COLORS
-C_NO	=		"\033[00m"
-C_OK	=		"\033[35m"
-C_GOOD	=		"\033[32m"
-C_ERROR	=		"\033[31m"
-C_WARN	=		"\033[33m"
+INCDIRLIBFT	=	$(LIBFTDIR)/includes/
 
-SUCCESS	=		$(C_GOOD)SUCCESS$(C_NO)
-OK		=		$(C_OK)OK$(C_NO)
+SRCBASE		=	\
+				test_printf.c
 
-NAME = libftprintf.a
+SRCS		=	$(addprefix $(SRCDIR), $(SRCBASE))
 
-FLAG = -Werror -Wextra -Wall
+OBJS		=	$(addprefix $(OBJDIR), $(SRCBASE:.c=.o))
 
-$(NAME): all
+.SILENT:
 
 all:
-	@gcc -I includes -c  $(SRC_ALL) $(FLAG)
-	@ar rc $(NAME) $(SRC_LFTO) $(SRC_PRINTFO)
-	@ranlib $(NAME)
-	@gcc test_printf.c -L . -lftprintf -I includes/ -o test_printf -ggdb
+	$(MAKE) -j $(NAME)
+
+$(NAME):	$(OBJDIR) $(OBJS)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS) -L $(LIBFTDIR) -lftprintf
+	echo "\r\033[38;5;40mMAKE    [\033[0m$(NAMEBASE)\033[38;5;40m]\033[K"
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+	mkdir -p $(dir $(OBJS))
+
+$(OBJDIR)%.o : $(SRCDIR)%.c | $(OBJDIR)
+	$(CC) $(FLAGS) -MMD -c $< -o $@											\
+		-I $(INCDIR) -I $(INCDIRLIBFT)
+	printf "\r\033[38;5;117m%s%*.*s\033[0m\033[K"							\
+	"MAKE   "$(NAMEBASE)" plz wait ..."										\
+		$(MAX_COLS) $(MAX_COLS) "($(@))"
 
 clean:
-	@rm -rf $(OALL)
+	if [[ `rm -R $(OBJDIR) &> /dev/null 2>&1; echo $$?` == "0" ]]; then		\
+		echo -en "\r\033[38;5;101mCLEAN  "									\
+		"[\033[0m$(NAMEBASE)\033[38;5;101m]\033[K";							\
+	else																	\
+		printf "\r";														\
+	fi
 
 fclean:		clean
-	@rm -rf $(NAME)
+	if [[ `rm $(NAME) &> /dev/null 2>&1; echo $$?` == "0" ]]; then			\
+		echo -en "\r\033[38;5;124mFCLEAN "									\
+		"[\033[0m$(NAMEBASE)\033[38;5;124m]\033[K";							\
+	else																	\
+		printf "\r";														\
+	fi
 
-re:		fclean all
+re:			fclean all
 
-.PHONY: all fclean clean re
+.PHONY:		fclean clean re
+
+-include $(OBJS:.o=.d)
+
+.PHONY: all clean fclean re

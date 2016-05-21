@@ -16,10 +16,12 @@
 int		main(void)
 {
 	int res = 0;
-	ft_printf("%#4d\n", 99);
-	ft_printf("%#4d\n", 101);
-	ft_printf("%#4d\n", 1000);
-	ft_printf("%#4d\n", 1020);
+	res = ft_printf("%#50.20X\n", 255555555);
+	ft_printf("%d\n", res);
+	res = printf("%#50.20X\n", 255555555);
+	ft_printf("%d\n", res);
+	ft_printf("%x\n", 1000);
+	ft_printf("%x\n", 1020);
 	//res = printf("%#1d", 100);
 	//printf("\n\n%d", res);
 	return (0);
