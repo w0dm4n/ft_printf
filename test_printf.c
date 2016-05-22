@@ -16,15 +16,14 @@
 
 int		main(void)
 {
-	ft_printf("salut NUMERO %d%d%d", 1, 2, 3);
-	/*int res = 0;
-	res = ft_printf("%#50.20X\n", 255555555);
-	ft_printf("%d\n", res);
-	res = printf("%#50.20X\n", 255555555);
-	ft_printf("%d\n", res);
-	ft_printf("%x\n", 1000);
-	ft_printf("%x\n", 1020);
-	//res = printf("%#1d", 100);
-	//printf("\n\n%d", res);*/
+	char *tmp;
+	int ft, v;
+
+	tmp = NULL;
+
+	//ft_asprintf(&tmp, "%c", mychar);
+	ft = ft_printf("%C",  L'Ω');
+	v = printf("%C",  L'Ω');
+	printf("\nretour[v->%d, ft->%d]\n", ft, v);
 	return (0);
 }

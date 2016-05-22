@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_s.c                                           :+:      :+:    :+:   */
+/*   flag_S.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/18 14:17:30 by jguyet            #+#    #+#             */
-/*   Updated: 2016/03/18 14:17:32 by jguyet           ###   ########.fr       */
+/*   Created: 2016/05/22 10:32:36 by jguyet            #+#    #+#             */
+/*   Updated: 2016/05/22 10:32:37 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,22 @@
 
 #include "printf.h"
 
-int			flag_s(t_string *string, int i)
+#include <wchar.h>
+
+int			flag_S(t_string *string, int i)
 {
-	char	*tmp;
+	wchar_t	*tmp;
+	int		n;
 
 	tmp = NULL;
-	tmp = get_string(string);
+	tmp = get_wstring(string);
 	if (tmp == NULL)
 	{
-		add_string(string, "(null)", 1);
+		string->new = ft_dstrjoin(string->new, "(null)", 1);
 		return (i + 1);
 	}
-	add_string(string, tmp, 3);
+	n = -1;
+	while (tmp[++n])
+		add_wchar(string, tmp[n]);
 	return (i + 1);
 }

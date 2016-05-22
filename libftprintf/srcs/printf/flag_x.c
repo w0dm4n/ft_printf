@@ -22,11 +22,11 @@ int			flag_x(t_string *string, int i)
 	tmp = va_arg(string->list, int);
 	if (string->sub_flags & SUB_SHARP)
 	{
-		ft_putstr("0x");
+		string->new = ft_dstrjoin(string->new, "0x", 1);
 		string->res += 2;
 	}
 	word = ft_itoabase(tmp, "0123456789abcdef");
 	string->res += ft_strlen(word);
-	ft_putstr(word);
+	string->new = ft_dstrjoin(string->new, word, 3);
 	return (i + 1);
 }

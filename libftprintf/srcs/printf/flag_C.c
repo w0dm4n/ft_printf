@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_s.c                                           :+:      :+:    :+:   */
+/*   flag_C.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/18 14:17:30 by jguyet            #+#    #+#             */
-/*   Updated: 2016/03/18 14:17:32 by jguyet           ###   ########.fr       */
+/*   Created: 2016/05/22 10:32:18 by jguyet            #+#    #+#             */
+/*   Updated: 2016/05/22 10:32:20 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #define PRINTF_PROG
 
 #include "printf.h"
+#include <wchar.h>
 
-int			flag_s(t_string *string, int i)
+int			flag_C(t_string *string, int i)
 {
-	char	*tmp;
+	wchar_t	tmp;
 
-	tmp = NULL;
-	tmp = get_string(string);
-	if (tmp == NULL)
+	tmp = 0;
+	tmp = get_wchar(string);
+	if (tmp == 0)
 	{
-		add_string(string, "(null)", 1);
+		string->new = ft_dstrjoin(string->new, "(null)", 1);
 		return (i + 1);
 	}
-	add_string(string, tmp, 3);
+	add_wchar(string, tmp);
 	return (i + 1);
 }

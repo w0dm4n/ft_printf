@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_s.c                                           :+:      :+:    :+:   */
+/*   get_string.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/18 14:17:30 by jguyet            #+#    #+#             */
-/*   Updated: 2016/03/18 14:17:32 by jguyet           ###   ########.fr       */
+/*   Created: 2016/05/22 11:45:46 by jguyet            #+#    #+#             */
+/*   Updated: 2016/05/22 11:45:48 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 #include "printf.h"
 
-int			flag_s(t_string *string, int i)
-{
-	char	*tmp;
+#include <wchar.h>
 
-	tmp = NULL;
-	tmp = get_string(string);
-	if (tmp == NULL)
-	{
-		add_string(string, "(null)", 1);
-		return (i + 1);
-	}
-	add_string(string, tmp, 3);
-	return (i + 1);
+char		*get_string(t_string *t)
+{
+	return ((char*)va_arg(t->list, char *));
+}
+
+wchar_t		*get_wstring(t_string *t)
+{
+	return ((wchar_t*)va_arg(t->list, wchar_t *));
 }

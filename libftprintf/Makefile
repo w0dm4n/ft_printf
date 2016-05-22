@@ -101,6 +101,7 @@ SRCBASE		=	\
 				string/ft_strtrim_string.c					\
 				string/ft_outstring.c						\
 				string/ft_dstrjoin.c						\
+				string/ft_dstrjoin_char.c					\
 				printf/flag_X.c								\
 				printf/flag_c.c								\
 				printf/flag_d.c								\
@@ -109,7 +110,14 @@ SRCBASE		=	\
 				printf/flag_x.c								\
 				printf/ft_printf.c							\
 				printf/handler.c							\
-				printf/sub_flags.c
+				printf/add/add_wchar.c						\
+				printf/flag_C.c								\
+				printf/flag_S.c								\
+				printf/sub_flags.c							\
+				printf/get/get_char.c						\
+				printf/get/get_int.c						\
+				printf/get/get_long.c						\
+				printf/get/get_string.c
 
 SRCS		=	$(addprefix $(SRCDIR), $(SRCBASE))
 

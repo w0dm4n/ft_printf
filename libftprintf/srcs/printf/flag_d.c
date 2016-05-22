@@ -33,22 +33,22 @@ int			flag_d(t_string *string, int i)
 	sub_num = 0;
 	if (string->sub_num)
 		sub_num = ft_atoi(string->sub_num);
-	tmp = va_arg(string->list, int);
+	tmp = get_int(string);
 	len = size_to(tmp);
 	if (string->sub_flags & SUB_SHARP)
 		while ((sub_num--) > len)
 		{
-			ft_putchar(' ');
+			string->new = ft_dstrjoin(string->new, " ", 1);
 			string->res++;
 		}
 	if (string->sub_flags & SUB_SUP)
 	{
 		if (tmp > 0)
-			ft_putchar('+');
+			string->new = ft_dstrjoin(string->new, "+", 1);
 		else if (tmp < 0)
-			ft_putchar('-');
+			string->new = ft_dstrjoin(string->new, "-", 1);
 	}
-	ft_putnbr(tmp);
+	string->new = ft_dstrjoin(string->new, ft_itoa(tmp), 3);
 	string->res += len;
 	return (i + 1);
 }

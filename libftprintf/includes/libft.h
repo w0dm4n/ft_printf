@@ -101,6 +101,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 
 char				*ft_dstrjoin(char *s1, char *s2, short flag);
+char				*ft_dstrjoin_char(char *s1, char c, short flag);
 char				*ft_strndup(const char *src, size_t n);
 int					ft_strnchr(char const *s, int c, int nbr);
 int					ft_count_char(char *txt, char c);

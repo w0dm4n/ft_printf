@@ -30,13 +30,13 @@ static void	add_sharp(t_string *string, int len)
 	space = (((ft_atoi(string->sub_num) - len) - zero) - 2);
 	while (space--)
 	{
-		ft_putstr(" ");
+		string->new = ft_dstrjoin(string->new, " ", 1);
 		string->res++;
 	}
-	ft_putstr("0X");
+	string->new = ft_dstrjoin(string->new, "0X", 1);
 	while (zero--)
 	{
-		ft_putstr("0");
+		string->new = ft_dstrjoin(string->new, "0", 1);
 		string->res++;
 	}
 	string->res += 2;
@@ -53,6 +53,6 @@ int			flag_X(t_string *string, int i)
 	len = ft_strlen(word);
 	add_sharp(string, len);
 	string->res += len;
-	ft_putstr(word);
+	string->new = ft_dstrjoin(string->new, word, 3);
 	return (i + 1);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_s.c                                           :+:      :+:    :+:   */
+/*   add_char.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/18 14:17:30 by jguyet            #+#    #+#             */
-/*   Updated: 2016/03/18 14:17:32 by jguyet           ###   ########.fr       */
+/*   Created: 2016/05/22 13:04:56 by jguyet            #+#    #+#             */
+/*   Updated: 2016/05/22 13:04:58 by jguyet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,8 @@
 
 #include "printf.h"
 
-int			flag_s(t_string *string, int i)
+void		add_char(t_string *string, char c)
 {
-	char	*tmp;
-
-	tmp = NULL;
-	tmp = get_string(string);
-	if (tmp == NULL)
-	{
-		add_string(string, "(null)", 1);
-		return (i + 1);
-	}
-	add_string(string, tmp, 3);
-	return (i + 1);
+	string->res += 1;
+	string->new = ft_dstrjoin_char(string->new, c, 1);
 }

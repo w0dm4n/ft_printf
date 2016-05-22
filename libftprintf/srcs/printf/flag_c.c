@@ -17,14 +17,17 @@
 int			flag_c(t_string *string, int i)
 {
 	char	tmp;
+	char	*fi;
 
 	tmp = 0;
-	tmp = va_arg(string->list, int);
+	tmp = get_char(string);
 	if (tmp == 0)
 	{
-		ft_putstr("(null)");
+		string->new = ft_dstrjoin(string->new, "(null)", 1);
 		return (i + 1);
 	}
-	ft_putchar(tmp);
+	fi = ft_strnew(1);
+	fi[0] = tmp;
+	string->new = ft_dstrjoin(string->new, fi, 3);
 	return (i + 1);
 }

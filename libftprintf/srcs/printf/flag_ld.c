@@ -18,12 +18,12 @@ int			flag_ld(t_string *string, int i)
 {
 	long unsigned int	tmp;
 
-	tmp = va_arg(string->list, long unsigned int);
+	tmp = get_ulong_int(string);
 	if (string->sub_flags & SUB_SUP)
 	{
 		if (tmp > 0)
-			ft_putchar('+');
+			string->new = ft_dstrjoin(string->new, "+", 1);
 	}
-	ft_putnbr(tmp);
+	string->new = ft_dstrjoin(string->new, ft_itoa(tmp), 3);
 	return (i + 2);
 }
