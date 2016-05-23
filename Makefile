@@ -46,7 +46,8 @@ all:
 
 $(NAME):	$(OBJDIR) $(OBJS)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS) -L $(LIBFTDIR) -lftprintf
-	echo "\r\033[38;5;40mMAKE    [\033[0m$(NAMEBASE)\033[38;5;40m]\033[K"
+	echo "MAKE   [$(NAMEBASE)]"
+	#echo "\r\033[38;5;40mMAKE    [\033[0m$(NAMEBASE)\033[38;5;40m]\033[K"
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
@@ -57,7 +58,7 @@ $(OBJDIR)%.o : $(SRCDIR)%.c | $(OBJDIR)
 		-I $(INCDIR) -I $(INCDIRLIBFT)
 	printf "\r\033[38;5;117m%s%*.*s\033[0m\033[K"							\
 	"MAKE   "$(NAMEBASE)" plz wait ..."										\
-		$(MAX_COLS) $(MAX_COLS) "($(@))"
+		$(MAX_COLS) $(MAX_COLS) "($(@)))"
 
 clean:
 	if [[ `rm -R $(OBJDIR) &> /dev/null 2>&1; echo $$?` == "0" ]]; then		\

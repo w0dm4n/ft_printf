@@ -13,17 +13,15 @@
 #include <printf.h>
 #include <libft.h>
 #include <wchar.h>
+#include <stdio.h>
 
 int		main(void)
 {
-	char *tmp;
 	int ft, v;
 
-	tmp = NULL;
-
 	//ft_asprintf(&tmp, "%c", mychar);
-	ft = ft_printf("%C",  L'Ω');
-	v = printf("%C",  L'Ω');
+	ft = ft_printf("%s, %15.5d",  "SALUT", 234444);
+	v = printf("%s, %15.5d",  "SALUT", 234444);
 	printf("\nretour[v->%d, ft->%d]\n", ft, v);
 	return (0);
 }

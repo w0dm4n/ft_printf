@@ -102,22 +102,25 @@ SRCBASE		=	\
 				string/ft_outstring.c						\
 				string/ft_dstrjoin.c						\
 				string/ft_dstrjoin_char.c					\
-				printf/flag_X.c								\
-				printf/flag_c.c								\
-				printf/flag_d.c								\
-				printf/flag_ld.c							\
-				printf/flag_s.c								\
-				printf/flag_x.c								\
+				printf/big_flags/flag_X.c					\
+				printf/small_flags/flag_c.c					\
+				printf/small_flags/flag_d.c					\
+				printf/small_flags/flag_ld.c				\
+				printf/small_flags/flag_s.c					\
+				printf/small_flags/flag_x.c					\
 				printf/ft_printf.c							\
 				printf/handler.c							\
 				printf/add/add_wchar.c						\
-				printf/flag_C.c								\
-				printf/flag_S.c								\
-				printf/sub_flags.c							\
+				printf/big_flags/flag_C.c					\
+				printf/big_flags/flag_S.c					\
+				printf/sub_flags/sub_flags.c				\
 				printf/get/get_char.c						\
 				printf/get/get_int.c						\
 				printf/get/get_long.c						\
-				printf/get/get_string.c
+				printf/get/get_string.c						\
+				printf/get/get_double.c						\
+				printf/add/add_string.c						\
+				printf/add/add_char.c
 
 SRCS		=	$(addprefix $(SRCDIR), $(SRCBASE))
 
@@ -131,7 +134,7 @@ all:
 $(NAME):	$(OBJDIR) $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	echo "\r\033[38;5;40mMAKE    [\033[0m$(NAMEBASE)\033[38;5;40m]\033[K"
+	echo "MAKE   [$(NAMEBASE)]"
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
@@ -142,7 +145,7 @@ $(OBJDIR)%.o : $(SRCDIR)%.c | $(OBJDIR)
 		-I $(INCDIR)
 	printf "\r\033[38;5;117m%s%*.*s\033[0m\033[K"							\
 	"MAKE   "$(NAMEBASE)" plz wait ..."										\
-		$(MAX_COLS) $(MAX_COLS) "($(@))"
+		$(MAX_COLS) $(MAX_COLS) "($(@)))"
 
 clean:
 	if [[ `rm -R $(OBJDIR) &> /dev/null 2>&1; echo $$?` == "0" ]]; then		\

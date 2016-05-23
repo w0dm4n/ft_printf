@@ -43,6 +43,12 @@ typedef struct		s_string
 
 int						parse_flags(t_string *string, int i);
 /*
+** FUNCTION
+*/
+
+void					add_string(t_string *string, char *s, int del);
+void					add_char(t_string *string, char c);
+/*
 **	SUBFLAGS
 */
 
@@ -76,6 +82,7 @@ long long int			get_long_long_int(t_string *t);
 unsigned long long int	get_ulong_long_int(t_string *t);
 char					*get_string(t_string *t);
 wchar_t					*get_wstring(t_string *t);
+double					get_double(t_string *t);
 
 /*
 **	ADD

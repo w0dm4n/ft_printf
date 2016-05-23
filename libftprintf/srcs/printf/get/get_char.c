@@ -14,6 +14,8 @@
 
 #include "printf.h"
 
+#include <wchar.h>
+
 char			get_char(t_string *t)
 {
 	return ((char)get_int(t));
@@ -26,5 +28,7 @@ unsigned char	get_uchar(t_string *t)
 
 wchar_t			get_wchar(t_string *t)
 {
-	return ((wchar_t)va_arg(t->list, wchar_t));
+	(void)t;
+	return (0);
+	//return ((wchar_t)va_arg(t->list, wchar_t));
 }
