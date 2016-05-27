@@ -41,6 +41,8 @@ int			parse_two(t_string *string, int i)
 {
 	if (!ft_strncmp("p", FLAG, 1))
 		i = flag_p(string, i);
+	if (!ft_strncmp("D", FLAG, 1))
+		i = flag_big_d(string, i);
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 #    By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/25 15:18:38 by jguyet            #+#    #+#              #
-#    Updated: 2016/03/30 10:16:32 by jguyet           ###   ########.fr        #
+#    Updated: 2016/05/27 22:27:31 by frmarinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ MAX_COLS	=	$$(echo "$$(tput cols)-20-$(LENGTHNAME)"|bc)
 
 CC			=	gcc
 
-FLAGS		=	-Wall -Wextra -Werror -O3 -ggdb
+FLAGS		= -O3 -ggdb
 
 SRCDIR		=	
 

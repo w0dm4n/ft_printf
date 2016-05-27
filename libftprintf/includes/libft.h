@@ -133,4 +133,11 @@ char				*ft_uitoa(unsigned int c);
 */
 
 char*				ft_itoabase_uint(unsigned long int nbr, char *base);
+
+/*
+** LONG INT
+*/
+
+char				*ft_itoa_lint(long int c);
+
 #endif
