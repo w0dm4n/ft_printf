@@ -93,6 +93,8 @@ SRCBASE		=	\
 				int/ft_add_end_int.c						\
 				int/ft_itoabase.c							\
 				int/ft_putnbr_back.c						\
+				int/ft_long_itoa.c							\
+				int/ft_uitoa.c								\
 				string/ft_count_char.c						\
 				string/ft_lenbychar.c						\
 				string/ft_strnchr.c							\
@@ -120,7 +122,9 @@ SRCBASE		=	\
 				printf/get/get_string.c						\
 				printf/get/get_double.c						\
 				printf/add/add_string.c						\
-				printf/add/add_char.c
+				printf/add/add_char.c						\
+				printf/add/add_int.c						\
+				printf/add/add_long.c
 
 SRCS		=	$(addprefix $(SRCDIR), $(SRCBASE))
 

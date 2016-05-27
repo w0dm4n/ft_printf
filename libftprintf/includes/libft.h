@@ -125,4 +125,6 @@ char				*ft_itoabase(int nbr, char *base);
 void				ft_putnbr_back(long int n);
 unsigned int		ft_lenbychar(char *s, char c);
 int					*ft_add_end_int(int *tab, int val, int size);
+char				*ft_long_itoa(long int c);
+char				*ft_uitoa(unsigned int c);
 #endif

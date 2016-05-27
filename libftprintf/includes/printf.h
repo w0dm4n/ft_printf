@@ -26,7 +26,7 @@ typedef struct		s_string
 	char			*s;
 	va_list			list;
 	unsigned int	res;
-	short			sub_flags;
+	unsigned short	sub_flags;
 	char			*sub_num;
 	char			*new;
 }					t_string;
@@ -36,6 +36,7 @@ typedef struct		s_string
 #  define SUB_ZERO 2048
 #  define SUB_INF 4096
 #  define SUB_SUP 8192
+#  define SUB_SPACE 16384
 #  define DELIMITER '%'
 /*
 **	HANDLER
@@ -74,7 +75,7 @@ char					get_char(t_string *t);
 unsigned char			get_uchar(t_string *t);
 wchar_t					get_wchar(t_string *t);
 int						get_int(t_string *t);
-unsigned int			get_lint(t_string *t);
+unsigned int			get_uint(t_string *t);
 unsigned long			get_ulong(t_string *t);
 long int				get_long_int(t_string *t);
 unsigned long int		get_ulong_int(t_string *t);

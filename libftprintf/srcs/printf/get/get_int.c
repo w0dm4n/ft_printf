@@ -19,7 +19,7 @@ int					get_int(t_string *t)
 	return ((int)va_arg(t->list, int));
 }
 
-unsigned int		get_lint(t_string *t)
+unsigned int		get_uint(t_string *t)
 {
 	return ((unsigned int)va_arg(t->list, unsigned int));
 }

@@ -32,6 +32,8 @@ int			parse_one(t_string *string, int i)
 		i = flag_C(string, i);
 	else if (!ft_strncmp("S", FLAG, 1))
 		i = flag_S(string, i);
+	else if (!ft_strncmp("%", FLAG, 1) && (i = i + 1))
+		add_char(string, '%');
 	return (i);
 }
 

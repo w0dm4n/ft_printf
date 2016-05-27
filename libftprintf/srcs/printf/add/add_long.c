@@ -10,4 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#define PRINTF_PROG
 
+#include "printf.h"
+
+void		add_long_int(t_string *string, long int s)
+{
+	char *n;
+	
+	n = ft_long_itoa(s);
+	string->res += ft_strlen(n);
+	string->new = ft_dstrjoin(string->new, n, 3);
+}
