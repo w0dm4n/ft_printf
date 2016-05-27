@@ -6,7 +6,7 @@
 /*   By: jguyet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 12:36:11 by jguyet            #+#    #+#             */
-/*   Updated: 2016/01/12 17:57:29 by jguyet           ###   ########.fr       */
+/*   Updated: 2016/05/27 18:38:28 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,4 +127,10 @@ unsigned int		ft_lenbychar(char *s, char c);
 int					*ft_add_end_int(int *tab, int val, int size);
 char				*ft_long_itoa(long int c);
 char				*ft_uitoa(unsigned int c);
+
+/*
+** UINT
+*/
+
+char*				ft_itoabase_uint(unsigned int nbr, char *base);
 #endif

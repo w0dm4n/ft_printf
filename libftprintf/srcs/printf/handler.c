@@ -27,11 +27,11 @@ int			parse_one(t_string *string, int i)
 	else if (!ft_strncmp("x", FLAG, 1))
 		i = flag_x(string, i);
 	else if (!ft_strncmp("X", FLAG, 1))
-		i = flag_X(string, i);
+		i = flag_big_x(string, i);
 	else if (!ft_strncmp("C", FLAG, 1))
-		i = flag_C(string, i);
+		i = flag_big_c(string, i);
 	else if (!ft_strncmp("S", FLAG, 1))
-		i = flag_S(string, i);
+		i = flag_big_s(string, i);
 	else if (!ft_strncmp("%", FLAG, 1) && (i = i + 1))
 		add_char(string, '%');
 	return (i);
@@ -57,15 +57,15 @@ int			parse_flags(t_string *string, int i)
 		string->res++;
 	}
 	if (i > save)
-		string->new = ft_dstrjoin(string->new, ft_strndup(string->s + save, i - save), 3);
+		string->new = ft_dstrjoin(string->new, \
+			ft_strndup(string->s + save, i - save), 3);
 	if (string->s[i] && string->s[i] == DELIMITER && string->s[i + 1])
 	{
 		save = i + 1;
 		i = sub_flags(string, i);
 		if ((i = parse_one(string, i)) == save)
 			if ((i = parse_two(string, i)) == save)
-			{
-			}
+				;
 	}
 	else
 		return (0);

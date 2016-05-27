@@ -6,7 +6,7 @@
 #    By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/25 15:18:38 by jguyet            #+#    #+#              #
-#    Updated: 2016/03/30 10:16:32 by jguyet           ###   ########.fr        #
+#    Updated: 2016/05/27 18:37:19 by frmarinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,6 +95,7 @@ SRCBASE		=	\
 				int/ft_putnbr_back.c						\
 				int/ft_long_itoa.c							\
 				int/ft_uitoa.c								\
+				uint/ft_itoabase_uint.c						\
 				string/ft_count_char.c						\
 				string/ft_lenbychar.c						\
 				string/ft_strnchr.c							\
@@ -104,7 +105,7 @@ SRCBASE		=	\
 				string/ft_outstring.c						\
 				string/ft_dstrjoin.c						\
 				string/ft_dstrjoin_char.c					\
-				printf/big_flags/flag_X.c					\
+				printf/big_flags/flag_big_x.c				\
 				printf/small_flags/flag_c.c					\
 				printf/small_flags/flag_d.c					\
 				printf/small_flags/flag_ld.c				\
@@ -113,8 +114,8 @@ SRCBASE		=	\
 				printf/ft_printf.c							\
 				printf/handler.c							\
 				printf/add/add_wchar.c						\
-				printf/big_flags/flag_C.c					\
-				printf/big_flags/flag_S.c					\
+				printf/big_flags/flag_big_c.c				\
+				printf/big_flags/flag_big_s.c				\
 				printf/sub_flags/sub_flags.c				\
 				printf/get/get_char.c						\
 				printf/get/get_int.c						\

@@ -22,7 +22,7 @@ static int	size_to(int nbr)
 	while ((nbr = nbr / 10))
 		len++;
 	return (len);
-}		
+}
 
 int			flag_d(t_string *string, int i)
 {
@@ -48,4 +48,3 @@ int			flag_d(t_string *string, int i)
 	add_string(string, ft_itoa(tmp), 3);
 	return (i + 1);
 }
-

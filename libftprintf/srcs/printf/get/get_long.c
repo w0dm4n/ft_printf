@@ -14,27 +14,27 @@
 
 #include "printf.h"
 
-unsigned long 				get_ulong(t_string *t)
+unsigned long				get_ulong(t_string *t)
 {
 	return ((unsigned long)va_arg(t->list, unsigned long));
 }
 
-long int 					get_long_int(t_string *t)
+long int					get_long_int(t_string *t)
 {
 	return ((long int)va_arg(t->list, long int));
 }
 
-unsigned long int 			get_ulong_int(t_string *t)
+unsigned long int			get_ulong_int(t_string *t)
 {
 	return ((unsigned long int)va_arg(t->list, unsigned long int));
 }
 
-long long int 				get_long_long_int(t_string *t)
+long long int				get_long_long_int(t_string *t)
 {
 	return ((long long int)va_arg(t->list, long long int));
 }
 
-unsigned long long int 		get_ulong_long_int(t_string *t)
+unsigned long long int		get_ulong_long_int(t_string *t)
 {
 	return ((unsigned long long int)va_arg(t->list, unsigned long long int));
 }

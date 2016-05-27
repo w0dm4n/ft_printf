@@ -38,6 +38,7 @@ typedef struct		s_string
 #  define SUB_SUP 8192
 #  define SUB_SPACE 16384
 #  define DELIMITER '%'
+#  define MAX_UINT 4294967295
 /*
 **	HANDLER
 */
@@ -63,9 +64,9 @@ int						flag_d(t_string *string, int i);
 int						flag_s(t_string *string, int i);
 int						flag_c(t_string *string, int i);
 int						flag_x(t_string *string, int i);
-int						flag_X(t_string *string, int i);
-int						flag_C(t_string *string, int i);
-int						flag_S(t_string *string, int i);
+int						flag_big_x(t_string *string, int i);
+int						flag_big_c(t_string *string, int i);
+int						flag_big_s(t_string *string, int i);
 
 /*
 **	GET

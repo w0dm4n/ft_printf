@@ -16,13 +16,13 @@
 
 int			flag_x(t_string *string, int i)
 {
-	int		tmp;
-	char	*word;
+	unsigned int		tmp;
+	char				*word;
 
-	tmp = get_int(string);
+	tmp = va_arg(string->list, unsigned int);
 	if (string->sub_flags & SUB_SHARP)
 		add_string(string, "0x", 1);
-	word = ft_itoabase(tmp, "0123456789abcdef");
+	word = ft_itoabase_uint(tmp, "0123456789abcdef");
 	add_string(string, word, 3);
 	return (i + 1);
 }

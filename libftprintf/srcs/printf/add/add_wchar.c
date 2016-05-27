@@ -25,7 +25,7 @@ void	add_wchar(t_string *t, wchar_t c)
 		add_char(t, (c >> 6) + 0xC0);
 		add_char(t, (c & 0x3F) + 0x80);
 	}
-	/*else if (c <= 0xFFFF)
+	else if (c <= 0xFFFF)
 	{
 		add_char(t, (c >> 12) + 0xE0);
 		add_char(t, ((c >> 6) & 0x3F) + 0x80);
@@ -37,5 +37,5 @@ void	add_wchar(t_string *t, wchar_t c)
 		add_char(t, ((c >> 12) & 0x3F) + 0x80);
 		add_char(t, ((c >> 6) & 0x3F) + 0x80);
 		add_char(t, (c & 0x3F) + 0x80);
-	}*/
+	}
 }

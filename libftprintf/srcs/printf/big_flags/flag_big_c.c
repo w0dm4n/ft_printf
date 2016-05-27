@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_c.c                                           :+:      :+:    :+:   */
+/*   flag_big_c.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/18 14:26:29 by jguyet            #+#    #+#             */
-/*   Updated: 2016/03/18 14:26:31 by jguyet           ###   ########.fr       */
+/*   Created: 2016/05/27 19:06:04 by frmarinh          #+#    #+#             */
+/*   Updated: 2016/05/27 19:06:05 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define PRINTF_PROG
 
 #include "printf.h"
+#include <wchar.h>
 
-int			flag_c(t_string *string, int i)
+int			flag_big_c(t_string *string, int i)
 {
-	char	tmp;
-	char	*fi;
+	wchar_t	tmp;
 
 	tmp = 0;
-	tmp = get_char(string);
+	tmp = get_wchar(string);
 	if (tmp == 0)
 	{
-		string->res++;
+		add_string(string, "(null)", 1);
 		return (i + 1);
 	}
-	fi = ft_strnew(1);
-	fi[0] = tmp;
-	add_string(string, fi, 3);
+	add_wchar(string, tmp);
 	return (i + 1);
 }

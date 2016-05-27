@@ -31,7 +31,6 @@ int			ft_printf(const char *s, ...)
 	return (string->res);
 }
 
-
 int			ft_asprintf(char **ptr, const char *s, ...)
 {
 	t_string	*string;

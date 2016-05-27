@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_int.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/22 12:52:54 by jguyet            #+#    #+#             */
-/*   Updated: 2016/05/22 12:52:56 by jguyet           ###   ########.fr       */
+/*   Created: 2016/05/27 18:46:38 by frmarinh          #+#    #+#             */
+/*   Updated: 2016/05/27 18:46:44 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void		add_int(t_string *string, int s)
 {
 	char *n;
-	
+
 	n = ft_itoa(s);
 	string->res += ft_strlen(n);
 	string->new = ft_dstrjoin(string->new, n, 3);
@@ -26,7 +26,7 @@ void		add_int(t_string *string, int s)
 void		add_uint(t_string *string, int s)
 {
 	char *n;
-	
+
 	n = ft_uitoa(s);
 	string->res += ft_strlen(n);
 	string->new = ft_dstrjoin(string->new, n, 3);

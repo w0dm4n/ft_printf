@@ -28,7 +28,5 @@ unsigned char	get_uchar(t_string *t)
 
 wchar_t			get_wchar(t_string *t)
 {
-	(void)t;
-	return (0);
-	//return ((wchar_t)va_arg(t->list, wchar_t));
+	return ((wchar_t)va_arg(t->list, wchar_t));
 }
