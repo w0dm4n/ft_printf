@@ -111,6 +111,7 @@ SRCBASE		=	\
 				printf/small_flags/flag_ld.c				\
 				printf/small_flags/flag_s.c					\
 				printf/small_flags/flag_x.c					\
+				printf/small_flags/flag_p.c					\
 				printf/ft_printf.c							\
 				printf/handler.c							\
 				printf/add/add_wchar.c						\

@@ -13,12 +13,12 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_itoabase_uint(unsigned int nbr, char *base)
+char	*ft_itoabase_uint(unsigned long int nbr, char *base)
 {
-	char			*res;
-	unsigned int	size;
-	unsigned int	len;
-	unsigned int	tmp;
+	char				*res;
+	unsigned long int	size;
+	unsigned long int	len;
+	unsigned long int	tmp;
 
 	tmp = nbr;
 	len = 1;

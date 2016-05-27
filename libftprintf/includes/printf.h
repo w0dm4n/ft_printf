@@ -67,6 +67,7 @@ int						flag_x(t_string *string, int i);
 int						flag_big_x(t_string *string, int i);
 int						flag_big_c(t_string *string, int i);
 int						flag_big_s(t_string *string, int i);
+int						flag_p(t_string *string, int i);
 
 /*
 **	GET

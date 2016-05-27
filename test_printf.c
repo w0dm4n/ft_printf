@@ -18,8 +18,13 @@
 
 int		main(void)
 {
-	int res = 0;
-	res = ft_printf("%X", 4294967295);
+	int		res = 0;
+	char	*test;
+
+	test = ft_strdup("Test");
+	//res = ft_printf("%p\n", &test);
+	res = ft_printf("%p\n", &test);
 	ft_printf("%d\n", res);
+	//ft_printf("\n%d\n", res);
 	return (0);
 }

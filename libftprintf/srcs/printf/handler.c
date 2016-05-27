@@ -39,7 +39,8 @@ int			parse_one(t_string *string, int i)
 
 int			parse_two(t_string *string, int i)
 {
-	(void)string;
+	if (!ft_strncmp("p", FLAG, 1))
+		i = flag_p(string, i);
 	return (i);
 }
 
@@ -63,9 +64,8 @@ int			parse_flags(t_string *string, int i)
 	{
 		save = i + 1;
 		i = sub_flags(string, i);
-		if ((i = parse_one(string, i)) == save)
-			if ((i = parse_two(string, i)) == save)
-				;
+		i = parse_one(string, i);
+		i = parse_two(string, i);
 	}
 	else
 		return (0);
