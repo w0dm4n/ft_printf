@@ -18,7 +18,7 @@
 
 int		main(void)
 {
-	ft_printf("%D\n", -922337203685477);
-	//ft_printf("%D\n", 42L);
+	printf("REAL PRINTF : %o\n", 123);
+	ft_printf("NEW PRINTF : %o\n", 123);
 	return (0);
 }

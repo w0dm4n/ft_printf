@@ -36,6 +36,8 @@ char			*ft_itoa_lint(long int c)
 	long int	len;
 	int			nega;
 
+	if (c < -9223372036854775807)
+		return (ft_strdup("-9223372036854775808"));
 	nega = 0;
 	if (c < 0)
 	{
