@@ -127,6 +127,8 @@ SRCBASE		=	\
 				printf/get/get_double.c						\
 				printf/add/add_string.c						\
 				printf/add/add_char.c						\
+				printf/add/add_space.c						\
+				printf/add/add_zero.c						\
 				printf/add/add_int.c						\
 				printf/big_flags/flag_big_d.c				\
 				printf/add/add_long.c

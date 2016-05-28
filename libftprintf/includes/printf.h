@@ -50,6 +50,11 @@ int						parse_flags(t_string *string, int i);
 
 void					add_string(t_string *string, char *s, int del);
 void					add_char(t_string *string, char c);
+void					add_zero(t_string *string, int zero);
+void					add_space(t_string *string, int space);
+void					add_int(t_string *string, int s);
+void					add_uint(t_string *string, int s);
+void					add_long_int(t_string *string, long int s);
 /*
 **	SUBFLAGS
 */
