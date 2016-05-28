@@ -24,15 +24,15 @@ static void	add_sharp(t_string *string, int len)
 	if (!(string->sub_flags & SUB_SHARP))
 		return ;
 	space = ft_atoi(string->sub_num);
-	while ((space = space / 10))
+	while ((space = space / 10) > 0)
 		l++;
-	zero = (ft_atoi(string->sub_num + (l + 1)) - len);
-	space = (((ft_atoi(string->sub_num) - len) - zero) - 2);
-	while (space--)
-		add_string(string, " ", 1);
+	if ((zero = (ft_atoi(string->sub_num + (l + 1)) - len)) < 1)
+		zero = 0;
+	if ((space = ((ft_atoi(string->sub_num)) - len) - 2) < 1)
+		space = 0;
+	add_space(string, space);
 	add_string(string, "0X", 1);
-	while (zero--)
-		add_string(string, "0", 1);
+	add_zero(string, zero);
 }
 
 int			flag_big_x(t_string *string, int i)
