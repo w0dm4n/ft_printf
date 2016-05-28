@@ -18,7 +18,6 @@
 
 int		main(void)
 {
-	printf("REAL PRINTF : %o\n", 123);
-	ft_printf("NEW PRINTF : %o\n", 123);
+	ft_printf("REAL PRINTF : %U\n", 18446744073709551615 / 2);
 	return (0);
 }

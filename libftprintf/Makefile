@@ -95,6 +95,7 @@ SRCBASE		=	\
 				int/ft_putnbr_back.c						\
 				int/ft_long_itoa.c							\
 				int/ft_uitoa.c								\
+				int/ft_uitoa_long.c							\
 				uint/ft_itoabase_uint.c						\
 				uint/ft_itoabase_lint.c						\
 				string/ft_count_char.c						\
@@ -108,12 +109,15 @@ SRCBASE		=	\
 				string/ft_dstrjoin_char.c					\
 				string/ft_split_string.c					\
 				printf/big_flags/flag_big_x.c				\
+				printf/big_flags/flag_big_u.c				\
 				printf/small_flags/flag_c.c					\
 				printf/small_flags/flag_d.c					\
 				printf/small_flags/flag_ld.c				\
 				printf/small_flags/flag_s.c					\
 				printf/small_flags/flag_x.c					\
 				printf/small_flags/flag_p.c					\
+				printf/small_flags/flag_o.c					\
+				printf/small_flags/flag_u.c					\
 				printf/ft_printf.c							\
 				printf/handler.c							\
 				printf/add/add_wchar.c						\

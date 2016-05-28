@@ -128,6 +128,7 @@ unsigned int		ft_lenbychar(char *s, char c);
 int					*ft_add_end_int(int *tab, int val, int size);
 char				*ft_long_itoa(long int c);
 char				*ft_uitoa(unsigned int c);
+char				*ft_uitoa_long(unsigned long int c);
 
 /*
 ** UINT

@@ -30,16 +30,21 @@ static char		*set_lowercase(char *string)
 
 int				flag_p(t_string *string, int i)
 {
-	void	*test;
+	void	*tmp;
 	char	*adress;
 
 	if (!(adress = ft_strnew(15)))
 		return (i + 1);
-	test = va_arg(string->list, void *);
+	tmp = va_arg(string->list, void *);
+	if (tmp == NULL)
+	{
+		add_string(string, ft_strdup("0x0"), 3);
+		return (i + 1);
+	}
 	adress[0] = '\0';
 	adress = ft_strcat(adress, "0x");
 	adress = ft_strcat(adress, \
-		set_lowercase(ft_itoabase_uint((unsigned long int)test, \
+		set_lowercase(ft_itoabase_uint((unsigned long int)tmp, \
 			"0123456789ABCDEF")));
 	add_string(string, adress, 3);
 	return (i + 1);

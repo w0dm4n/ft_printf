@@ -53,7 +53,8 @@ void					add_char(t_string *string, char c);
 void					add_zero(t_string *string, int zero);
 void					add_space(t_string *string, int space);
 void					add_int(t_string *string, int s);
-void					add_uint(t_string *string, int s);
+void					add_uint(t_string *string, unsigned int s);
+void					add_uint_long(t_string *string, unsigned long int s);
 void					add_long_int(t_string *string, long int s);
 /*
 **	SUBFLAGS
@@ -74,6 +75,9 @@ int						flag_big_c(t_string *string, int i);
 int						flag_big_s(t_string *string, int i);
 int						flag_big_d(t_string *string, int i);
 int						flag_p(t_string *string, int i);
+int						flag_o(t_string *string, int i);
+int						flag_u(t_string *string, int i);
+int						flag_big_u(t_string *string, int i);
 
 /*
 **	GET
