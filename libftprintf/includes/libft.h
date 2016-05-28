@@ -108,6 +108,7 @@ int					ft_count_char(char *txt, char c);
 char				*ft_strtrim_n(char const *s);
 void				ft_outstring(char **ptr, int len);
 char				*ft_strtrim_string(char const *s, char const *c);
+char				**ft_split_string(char const *s, char *c);
 
 /*
 ** LST
