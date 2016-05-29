@@ -16,6 +16,20 @@
 
 void		add_string(t_string *string, char *s, int del)
 {
-	string->res += ft_strlen(s);
-	string->new = ft_dstrjoin(string->new, s, del);
+	int i;
+	int o;
+	char *tmp;
+
+	i = 0;
+	(void)del;
+	if (string->res != 0 && !(string->res % BUFFER))
+	{
+		tmp = ft_strnew(string->res + BUFFER);
+		ft_memcpy(tmp, string->new, string->res);
+		ft_strdel(&string->new);
+		string->new = tmp;
+	}
+	o = ft_strlen(s);
+	while (i < o)
+		string->new[string->res++] = s[i++];
 }

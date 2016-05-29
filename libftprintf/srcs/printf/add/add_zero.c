@@ -18,8 +18,7 @@ void		add_zero(t_string *string, int zero)
 {
 	while (zero > 0)
 	{
-		string->res += 1;
-		string->new = ft_dstrjoin_char(string->new, '0', 1);
+		add_char(string, ' ');
 		zero--;
 	}
 }

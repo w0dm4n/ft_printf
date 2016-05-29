@@ -16,6 +16,14 @@
 
 void		add_char(t_string *string, char c)
 {
-	string->res += 1;
-	string->new = ft_dstrjoin_char(string->new, c, 1);
+	char *tmp;
+
+	if (string->res != 0 && !(string->res % BUFFER))
+	{
+		tmp = ft_strnew(string->res + BUFFER);
+		ft_memcpy(tmp, string->new, string->res);
+		ft_strdel(&string->new);
+		string->new = tmp; 
+	}
+	string->new[string->res++] = c;
 }

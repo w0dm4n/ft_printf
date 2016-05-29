@@ -13,6 +13,19 @@
 #define PRINTF_PROG
 
 #include <printf.h>
+#include <unistd.h>
+
+static void	put_printf(t_string *string)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < string->res)
+	{
+		write(1, string->new + i, 1);
+		i++;
+	}
+}
 
 int			ft_printf(const char *s, ...)
 {
@@ -22,10 +35,10 @@ int			ft_printf(const char *s, ...)
 		return (-1);
 	string->s = (char*)s;
 	string->res = 0;
-	string->new = ft_strnew(0);
+	string->new = ft_strnew(BUFFER);
 	va_start(string->list, (char*)s);
 	parse_flags(string, 0);
-	ft_putstr(string->new);
+	put_printf(string);
 	ft_strdel(&string->new);
 	va_end(string->list);
 	return (string->res);
@@ -39,7 +52,7 @@ int			ft_asprintf(char **ptr, const char *s, ...)
 		return (-1);
 	string->s = (char*)s;
 	string->res = 0;
-	string->new = ft_strnew(0);
+	string->new = ft_strnew(BUFFER);
 	va_start(string->list, (char*)s);
 	parse_flags(string, 0);
 	*ptr = string->new;

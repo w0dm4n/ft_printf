@@ -18,8 +18,7 @@ void		add_space(t_string *string, int space)
 {
 	while (space > 0)
 	{
-		string->res += 1;
-		string->new = ft_dstrjoin_char(string->new, ' ', 1);
+		add_char(string, ' ');
 		space--;
 	}
 }

@@ -35,16 +35,16 @@ int			flag_d(t_string *string, int i)
 		sub_num = ft_atoi(string->sub_num);
 	tmp = get_int(string);
 	len = size_to(tmp);
-	if (string->sub_flags & SUB_SHARP)
+	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
+		&& tmp > -1)
+		add_string(string, " ", 1);
+	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
+		& SUB_SPACE && sub_num))
 		while ((sub_num--) > len)
 			add_string(string, " ", 1);
 	if (string->sub_flags & SUB_SUP)
-	{
 		if (tmp > 0)
 			add_string(string, "+", 1);
-		else if (tmp < 0)
-			add_string(string, "-", 1);
-	}
 	add_string(string, ft_itoa(tmp), 3);
 	return (i + 1);
 }

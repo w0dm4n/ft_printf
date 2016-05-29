@@ -43,8 +43,10 @@ int			parse_two(t_string *string, int i)
 		i = flag_p(string, i);
 	else if (!ft_strncmp("D", FLAG, 1))
 		i = flag_big_d(string, i);
-	else if (!ft_strncmp("o", FLAG, 1) || !ft_strncmp("O", FLAG, 1))
+	else if (!ft_strncmp("o", FLAG, 1))
 		i = flag_o(string, i);
+	else if (!ft_strncmp("O", FLAG, 1))
+		i = flag_big_o(string, i);
 	else if (!ft_strncmp("u", FLAG, 1))
 		i = flag_u(string, i);
 	else if (!ft_strncmp("U", FLAG, 1))
@@ -61,13 +63,9 @@ int			parse_flags(t_string *string, int i)
 	string->sub_num = NULL;
 	save = i;
 	while (string->s[i] && string->s[i] != DELIMITER)
-	{
 		i++;
-		string->res++;
-	}
 	if (i > save)
-		string->new = ft_dstrjoin(string->new, \
-			ft_strndup(string->s + save, i - save), 3);
+		add_string(string, ft_strndup(string->s + save, i - save), 1);
 	if (string->s[i] && string->s[i] == DELIMITER && string->s[i + 1])
 	{
 		i = sub_flags(string, i);

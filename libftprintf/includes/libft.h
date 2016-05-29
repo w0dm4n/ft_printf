@@ -135,6 +135,7 @@ char				*ft_uitoa_long(unsigned long int c);
 */
 
 char*				ft_itoabase_uint(unsigned long int nbr, char *base);
+char				*ft_itoabase_lint(long int nbr, char *base);
 
 /*
 ** LONG INT

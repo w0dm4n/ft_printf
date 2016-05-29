@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_o.c                                           :+:      :+:    :+:   */
+/*   flag_big_o.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 18:37:06 by frmarinh          #+#    #+#             */
-/*   Updated: 2016/05/28 18:37:07 by frmarinh         ###   ########.fr       */
+/*   Created: 2016/05/27 19:10:51 by frmarinh          #+#    #+#             */
+/*   Updated: 2016/05/27 19:10:52 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define PRINTF_PROG
-
 #include "printf.h"
 
-int				flag_o(t_string *string, int i)
+int			flag_big_o(t_string *string, int i)
 {
-	int		tmp;
-	char	*word;
+	long int		tmp;
+	char			*word;
 
-	tmp = va_arg(string->list, int);
-	word = ft_itoabase(tmp, "01234567");
+	tmp = va_arg(string->list, long int);
+	word = ft_itoabase_lint(tmp, "01234567");
 	add_string(string, word, 3);
 	return (i + 1);
 }

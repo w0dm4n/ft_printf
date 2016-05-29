@@ -97,6 +97,7 @@ SRCBASE		=	\
 				int/ft_uitoa.c								\
 				int/ft_uitoa_long.c							\
 				uint/ft_itoabase_uint.c						\
+				uint/ft_itoa_lint.c							\
 				uint/ft_itoabase_lint.c						\
 				string/ft_count_char.c						\
 				string/ft_lenbychar.c						\
@@ -110,6 +111,7 @@ SRCBASE		=	\
 				string/ft_split_string.c					\
 				printf/big_flags/flag_big_x.c				\
 				printf/big_flags/flag_big_u.c				\
+				printf/big_flags/flag_big_o.c				\
 				printf/small_flags/flag_c.c					\
 				printf/small_flags/flag_d.c					\
 				printf/small_flags/flag_ld.c				\

@@ -17,17 +17,9 @@
 int			flag_c(t_string *string, int i)
 {
 	char	tmp;
-	char	*fi;
 
 	tmp = 0;
 	tmp = get_char(string);
-	if (tmp == 0)
-	{
-		string->res++;
-		return (i + 1);
-	}
-	fi = ft_strnew(1);
-	fi[0] = tmp;
-	add_string(string, fi, 3);
+	add_char(string, tmp);
 	return (i + 1);
 }

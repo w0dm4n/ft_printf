@@ -18,8 +18,9 @@ char	*ft_dstrjoin(char *s1, char *s2, short flag)
 	char	*result;
 	char	*tmp;
 
-	if (s1 && s2 && (result = (char*)malloc(sizeof(char) *
-		(ft_strlen(s1) + ft_strlen(s2) + 1))))
+	flag = 0;
+	if (s1 && s2 && (result = ft_strnew(
+		(ft_strlen(s1) + ft_strlen(s2) + 1000))))
 	{
 		tmp = result;
 		while (*s1)
@@ -29,9 +30,5 @@ char	*ft_dstrjoin(char *s1, char *s2, short flag)
 		*tmp = '\0';
 		return (result);
 	}
-	if (flag == 1 || flag == 3)
-		ft_strdel(&s1);
-	if (flag == 2 || flag == 3)
-		ft_strdel(&s2);
 	return (NULL);
 }

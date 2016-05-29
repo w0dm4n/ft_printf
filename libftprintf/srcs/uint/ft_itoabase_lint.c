@@ -1,59 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoabase.c                                      :+:      :+:    :+:   */
+/*   ft_itoabase_lint.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jguyet <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: frmarinh <frmarinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/02 05:17:08 by jguyet            #+#    #+#             */
-/*   Updated: 2016/05/27 18:36:44 by frmarinh         ###   ########.fr       */
+/*   Created: 2016/05/27 19:10:51 by frmarinh          #+#    #+#             */
+/*   Updated: 2016/05/27 19:10:52 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static char		*start_itoa(long int i, long int len, long int tmp, char *str)
+char	*ft_itoabase_lint(long int nbr, char *base)
 {
-	if (len)
-		str[0] = '-';
-	while (i)
-	{
-		str[len] = (char)(tmp / i) + '0';
-		tmp = tmp - ((tmp / i) * i);
-		i = i / 10;
-		len++;
-	}
-	str[len] = '\0';
-	return (str);
-}
-
-char			*ft_itoa_lint(long int c)
-{
-	char		*str;
-	long int	i;
-	long int	tmp;
+	char		*res;
+	long int	size;
 	long int	len;
-	int			nega;
+	long int	tmp;
 
-	if (c < -9223372036854775807)
-		return (ft_strdup("-9223372036854775808"));
-	nega = 0;
-	if (c < 0)
+	tmp = nbr;
+	len = 1;
+	size = 0;
+	while ((tmp = tmp / ft_strlen(base)))
 	{
-		nega++;
-		c = -c;
+		len = len * ft_strlen(base);
+		size++;
 	}
-	i = 1;
-	tmp = c;
-	len = 0;
-	while ((tmp = tmp / 10))
+	tmp = nbr;
+	res = (char*)malloc(sizeof(char) * (size + 1));
+	size = 0;
+	while (len)
 	{
-		i = i * 10;
-		len++;
+		res[size] = base[(tmp / len)];
+		tmp = tmp - ((tmp / len) * len);
+		len = len / ft_strlen(base);
+		size++;
 	}
-	if (!(str = ft_strnew(len + (nega ? 1 : 0) + 1)))
-		return (NULL);
-	len = 0;
-	return (start_itoa(i, (nega ? 1 : 0), c, str));
+	res[size] = '\0';
+	return (res);
 }

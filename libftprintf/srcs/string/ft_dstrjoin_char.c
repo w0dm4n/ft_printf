@@ -18,6 +18,7 @@ char	*ft_dstrjoin_char(char *s1, char c, short flag)
 	char	*result;
 	char	*tmp;
 
+	flag = 0;
 	if (s1 && (result = (char*)malloc(sizeof(char) *
 		(ft_strlen(s1) + 1 + 1))))
 	{
@@ -28,7 +29,5 @@ char	*ft_dstrjoin_char(char *s1, char c, short flag)
 		*tmp = '\0';
 		return (result);
 	}
-	if (flag == 1)
-		ft_strdel(&s1);
 	return (NULL);
 }

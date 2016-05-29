@@ -19,8 +19,7 @@ void		add_int(t_string *string, int s)
 	char *n;
 
 	n = ft_itoa(s);
-	string->res += ft_strlen(n);
-	string->new = ft_dstrjoin(string->new, n, 3);
+	add_string(string, n, 1);
 }
 
 void		add_uint(t_string *string, unsigned int s)
@@ -28,8 +27,7 @@ void		add_uint(t_string *string, unsigned int s)
 	char *n;
 
 	n = ft_uitoa(s);
-	string->res += ft_strlen(n);
-	string->new = ft_dstrjoin(string->new, n, 3);
+	add_string(string, n, 1);
 }
 
 void		add_uint_long(t_string *string, unsigned long int s)
@@ -37,6 +35,5 @@ void		add_uint_long(t_string *string, unsigned long int s)
 	char *n;
 
 	n = ft_uitoa_long(s);
-	string->res += ft_strlen(n);
-	string->new = ft_dstrjoin(string->new, n, 3);
+	add_string(string, n, 1);
 }

@@ -31,6 +31,8 @@ typedef struct		s_string
 	char			*new;
 }					t_string;
 
+# define BUFFER 2048
+
 #  define FLAG string->s + (i + 1)
 #  define SUB_SHARP 1024
 #  define SUB_ZERO 2048
@@ -78,6 +80,7 @@ int						flag_p(t_string *string, int i);
 int						flag_o(t_string *string, int i);
 int						flag_u(t_string *string, int i);
 int						flag_big_u(t_string *string, int i);
+int						flag_big_o(t_string *string, int i);
 
 /*
 **	GET
