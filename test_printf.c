@@ -22,7 +22,9 @@ int		main(void)
 	char *c;
 
 	c = NULL;
-	ft_printf("{% c}", 0);
+	ft_printf("%d", 999);
+	/*ft_printf("res :\t%d\n", ft_printf("{% c}\n", 0));
+	ft_printf("res :\t%d\n", printf("{%           c}\n", 0));*/
 	//ft_printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');
 	/*asprintf(&c, "% c", 0);
 	int i = 0;

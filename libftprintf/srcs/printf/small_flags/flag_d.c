@@ -14,7 +14,7 @@
 
 #include "printf.h"
 
-static int	size_to(int nbr)
+static int	size_to(long long int nbr)
 {
 	int len;
 
@@ -24,7 +24,38 @@ static int	size_to(int nbr)
 	return (len);
 }
 
-int			flag_d(t_string *string, int i)
+static int	flag_ll(t_string *string, int i)
+{
+	string = NULL;
+	return (i);
+}
+
+static int flag_l(t_string *string, int i)
+{
+	long int		tmp;
+	int				sub_num;
+	int				len;
+
+	sub_num = 0;
+	if (string->sub_num)
+		sub_num = ft_atoi(string->sub_num);
+	tmp = (long int)va_arg(string->list, long int);
+	len = size_to(tmp);
+	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
+		&& tmp > -1)
+		add_string(string, " ", 1);
+	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
+		& SUB_SPACE && sub_num))
+		while ((sub_num--) > len)
+			add_string(string, " ", 1);
+	if (string->sub_flags & SUB_SUP)
+		if (tmp > 0)
+			add_string(string, "+", 1);
+	add_string(string, ft_itoa_lint(tmp), 3);
+	return (i + 1);
+}
+
+static int	flag_default(t_string *string, int i)
 {
 	int		tmp;
 	int		sub_num;
@@ -47,4 +78,14 @@ int			flag_d(t_string *string, int i)
 			add_string(string, "+", 1);
 	add_string(string, ft_itoa(tmp), 3);
 	return (i + 1);
+}
+
+int			flag_d(t_string *string, int i)
+{
+	if (!ft_strncmp("ll", string->converter.type, 2))
+		return (flag_ll(string, i));
+	else if (!ft_strncmp("l", string->converter.type, 1))
+		return (flag_l(string, i));
+	else
+		return (flag_default(string, i));
 }

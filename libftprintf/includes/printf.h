@@ -21,11 +21,17 @@ int						ft_asprintf(char **ptr, const char *s, ...);
 
 # ifdef PRINTF_PROG
 
+typedef struct     s_convert
+{
+	char 			type[2]; 
+}					t_convert;
+
 typedef struct		s_string
 {
 	char			*s;
 	va_list			list;
 	unsigned int	res;
+	t_convert		converter;
 	unsigned short	sub_flags;
 	char			*sub_num;
 	char			*new;

@@ -16,14 +16,14 @@
 
 int			flag_ld(t_string *string, int i)
 {
-	long unsigned int	tmp;
+	long int	tmp;
 
-	tmp = get_ulong_int(string);
+	tmp = get_long_int(string);
 	if (string->sub_flags & SUB_SUP)
 	{
 		if (tmp > 0)
 			add_string(string, "+", 1);
 	}
-	add_string(string, ft_itoa(tmp), 3);
+	add_string(string, ft_itoa_lint(tmp), 3);
 	return (i + 2);
 }

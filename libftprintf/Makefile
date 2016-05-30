@@ -6,7 +6,7 @@
 #    By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/25 15:18:38 by jguyet            #+#    #+#              #
-#    Updated: 2016/05/27 18:37:19 by frmarinh         ###   ########.fr        #
+#    Updated: 2016/05/30 23:10:54 by frmarinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,7 +114,6 @@ SRCBASE		=	\
 				printf/big_flags/flag_big_o.c				\
 				printf/small_flags/flag_c.c					\
 				printf/small_flags/flag_d.c					\
-				printf/small_flags/flag_ld.c				\
 				printf/small_flags/flag_s.c					\
 				printf/small_flags/flag_x.c					\
 				printf/small_flags/flag_p.c					\
@@ -146,8 +145,11 @@ OBJS		=	$(addprefix $(OBJDIR), $(SRCBASE:.c=.o))
 .SILENT:
 
 all:
-	$(MAKE) -j $(NAME)
-
+	if test -f $(NAME) ; then												\
+		echo "make: Nothing to be done for \`all\`.";						\
+	else																	\
+		$(MAKE) -j $(NAME);													\
+	fi
 $(NAME):	$(OBJDIR) $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
