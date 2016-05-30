@@ -14,6 +14,13 @@
 
 #include "printf.h"
 
+static void	add_sharp(t_string *string)
+{
+	if (!(string->sub_flags & SUB_SHARP))
+		return ;
+	add_zero(string, 1);
+}
+
 int				flag_o(t_string *string, int i)
 {
 	int		tmp;
@@ -21,6 +28,8 @@ int				flag_o(t_string *string, int i)
 
 	tmp = va_arg(string->list, int);
 	word = ft_itoabase(tmp, "01234567");
+	if (tmp != 0)
+		add_sharp(string);
 	add_string(string, word, 3);
 	return (i + 1);
 }

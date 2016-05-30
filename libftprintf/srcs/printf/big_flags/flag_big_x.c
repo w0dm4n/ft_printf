@@ -14,7 +14,7 @@
 #include "printf.h"
 #include <stdio.h>
 
-static void	add_sharp(t_string *string, int len)
+static void	add_sharp(t_string *string, int len, unsigned int tmp)
 {
 	int	space;
 	int	zero;
@@ -26,13 +26,16 @@ static void	add_sharp(t_string *string, int len)
 	space = ft_atoi(string->sub_num);
 	while ((space = space / 10) > 0)
 		l++;
-	if ((zero = (ft_atoi(string->sub_num + (l + 1)) - len)) < 1)
+	if ((zero = (ft_atoi(string->sub_num + (l + 1)) - len)) < 1 || tmp == 0)
 		zero = 0;
-	if ((space = ((ft_atoi(string->sub_num)) - len) - 2) < 1)
+	if ((space = (((ft_atoi(string->sub_num)) - len) - 2) - zero) < 1)
 		space = 0;
 	add_space(string, space);
-	add_string(string, "0X", 1);
-	add_zero(string, zero);
+	if (tmp != 0)
+	{
+		add_string(string, "0X", 1);
+		add_zero(string, zero);
+	}
 }
 
 int			flag_big_x(t_string *string, int i)
@@ -44,7 +47,7 @@ int			flag_big_x(t_string *string, int i)
 	tmp = va_arg(string->list, unsigned int);
 	word = ft_itoabase_uint(tmp, "0123456789ABCDEF");
 	len = ft_strlen(word);
-	add_sharp(string, len);
+	add_sharp(string, len, tmp);
 	add_string(string, word, 3);
 	return (i + 1);
 }

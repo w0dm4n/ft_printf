@@ -18,7 +18,7 @@ void		add_zero(t_string *string, int zero)
 {
 	while (zero > 0)
 	{
-		add_char(string, ' ');
+		add_char(string, '0');
 		zero--;
 	}
 }
