@@ -23,3 +23,13 @@ unsigned int		get_uint(t_string *t)
 {
 	return ((unsigned int)va_arg(t->list, unsigned int));
 }
+
+short				get_short(t_string *t)
+{
+	return ((short)va_arg(t->list, int));
+}
+
+size_t				get_size_t(t_string *t)
+{
+	return ((size_t)va_arg(t->list, size_t));
+}

@@ -129,6 +129,10 @@ int					*ft_add_end_int(int *tab, int val, int size);
 char				*ft_long_itoa(long int c);
 char				*ft_uitoa(unsigned int c);
 char				*ft_uitoa_long(unsigned long int c);
+char				*ft_llitoabase(long long int nbr, char *base);
+char				*ft_litoabase(long int nbr, char *base);
+char				*ft_ztoabase(size_t nbr, char *base);
+char				*ft_stoabase(short nbr, char *base);
 
 /*
 ** UINT

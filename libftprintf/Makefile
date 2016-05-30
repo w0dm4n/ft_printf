@@ -92,6 +92,10 @@ SRCBASE		=	\
 				list/ft_putlst.c							\
 				int/ft_add_end_int.c						\
 				int/ft_itoabase.c							\
+				int/ft_litoabase.c							\
+				int/ft_llitoabase.c							\
+				int/ft_ztoabase.c							\
+				int/ft_stoabase.c							\
 				int/ft_putnbr_back.c						\
 				int/ft_long_itoa.c							\
 				int/ft_uitoa.c								\

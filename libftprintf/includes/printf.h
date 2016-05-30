@@ -105,6 +105,8 @@ unsigned long long int	get_ulong_long_int(t_string *t);
 char					*get_string(t_string *t);
 wchar_t					*get_wstring(t_string *t);
 double					get_double(t_string *t);
+short					get_short(t_string *t);
+size_t					get_size_t(t_string *t);
 
 /*
 **	ADD
