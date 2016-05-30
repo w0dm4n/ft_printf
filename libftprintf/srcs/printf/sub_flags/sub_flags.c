@@ -49,11 +49,11 @@ int			sub_flags(t_string *string, int i)
 		&& string->s[u + 1] <= '9')
 	{
 		tmp[0] = string->s[u + 1];
-		n = ft_strjoin(n, tmp);
+		n = ft_dstrjoin(n, tmp, 1);
 		u++;
 		if (string->s[u + 1] && string->s[u + 1] == '.')
 		{
-			n = ft_strjoin(n, ".");
+			n = ft_dstrjoin(n, ".", 1);
 			u++;
 		}
 	}

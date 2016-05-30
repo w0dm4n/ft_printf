@@ -17,8 +17,10 @@ char	*ft_dstrjoin_char(char *s1, char c, short flag)
 {
 	char	*result;
 	char	*tmp;
+	char	*pt;
 
-	flag = 0;
+	result = NULL;
+	pt = s1;
 	if (s1 && (result = (char*)malloc(sizeof(char) *
 		(ft_strlen(s1) + 1 + 1))))
 	{
@@ -27,7 +29,8 @@ char	*ft_dstrjoin_char(char *s1, char c, short flag)
 			*tmp++ = *s1++;
 		*tmp++ = c;
 		*tmp = '\0';
-		return (result);
 	}
-	return (NULL);
+	if ((flag == 1 && pt) || (flag == 3 && pt))
+		ft_strdel(&pt);
+	return (result);
 }

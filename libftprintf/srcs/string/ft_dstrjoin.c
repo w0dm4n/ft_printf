@@ -17,8 +17,12 @@ char	*ft_dstrjoin(char *s1, char *s2, short flag)
 {
 	char	*result;
 	char	*tmp;
+	char	*pt1;
+	char	*pt2;
 
-	flag = 0;
+	result = NULL;
+	pt1 = s1;
+	pt2 = s2;
 	if (s1 && s2 && (result = ft_strnew(
 		(ft_strlen(s1) + ft_strlen(s2) + 1000))))
 	{
@@ -28,7 +32,10 @@ char	*ft_dstrjoin(char *s1, char *s2, short flag)
 		while (*s2)
 			*tmp++ = *s2++;
 		*tmp = '\0';
-		return (result);
 	}
-	return (NULL);
+	if ((flag == 1 && pt1) || (flag == 3 && pt1))
+		ft_strdel(&pt1);
+	if ((flag == 2 && pt2) || (flag == 3 && pt2))
+		ft_strdel(&pt2);
+	return (result);
 }
