@@ -142,5 +142,7 @@ char				*ft_itoabase_lint(long int nbr, char *base);
 */
 
 char				*ft_itoa_lint(long int c);
+char				*ft_itoa_llint(long long int c);
+char				*ft_itoa_short(short c);
 
 #endif

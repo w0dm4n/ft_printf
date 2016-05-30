@@ -26,8 +26,27 @@ static int	size_to(long long int nbr)
 
 static int	flag_ll(t_string *string, int i)
 {
-	string = NULL;
-	return (i);
+	long long int		tmp;
+	int					sub_num;
+	int					len;
+
+	sub_num = 0;
+	if (string->sub_num)
+		sub_num = ft_atoi(string->sub_num);
+	tmp = (long long int)va_arg(string->list, long long int);
+	len = size_to(tmp);
+	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
+		&& tmp > -1)
+		add_string(string, " ", 1);
+	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
+		& SUB_SPACE && sub_num))
+		while ((sub_num--) > len)
+			add_string(string, " ", 1);
+	if (string->sub_flags & SUB_SUP)
+		if (tmp > 0)
+			add_string(string, "+", 1);
+	add_string(string, ft_itoa_llint(tmp), 3);
+	return (i + 1);
 }
 
 static int flag_l(t_string *string, int i)
@@ -52,6 +71,37 @@ static int flag_l(t_string *string, int i)
 		if (tmp > 0)
 			add_string(string, "+", 1);
 	add_string(string, ft_itoa_lint(tmp), 3);
+	return (i + 1);
+}
+
+static int	flag_hh(t_string *string, int i)
+{
+	string = NULL;
+	return (i + 1);
+}
+
+static int	flag_h(t_string *string, int i)
+{
+	short		tmp;
+	int			sub_num;
+	int			len;
+
+	sub_num = 0;
+	if (string->sub_num)
+		sub_num = ft_atoi(string->sub_num);
+	tmp = (short)va_arg(string->list, int);
+	len = size_to(tmp);
+	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
+		&& tmp > -1)
+		add_string(string, " ", 1);
+	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
+		& SUB_SPACE && sub_num))
+		while ((sub_num--) > len)
+			add_string(string, " ", 1);
+	if (string->sub_flags & SUB_SUP)
+		if (tmp > 0)
+			add_string(string, "+", 1);
+	add_string(string, ft_itoa_short(tmp), 3);
 	return (i + 1);
 }
 
@@ -86,6 +136,10 @@ int			flag_d(t_string *string, int i)
 		return (flag_ll(string, i));
 	else if (!ft_strncmp("l", string->converter.type, 1))
 		return (flag_l(string, i));
+	else if (!ft_strncmp("hh", string->converter.type, 2))
+		return (flag_hh(string, i));
+	else if (!ft_strncmp("h", string->converter.type, 1))
+		return (flag_h(string, i));
 	else
 		return (flag_default(string, i));
 }

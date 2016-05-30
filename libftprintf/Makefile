@@ -99,6 +99,8 @@ SRCBASE		=	\
 				uint/ft_itoabase_uint.c						\
 				uint/ft_itoa_lint.c							\
 				uint/ft_itoabase_lint.c						\
+				uint/ft_itoa_llint.c						\
+				uint/ft_itoa_short.c						\
 				string/ft_count_char.c						\
 				string/ft_lenbychar.c						\
 				string/ft_strnchr.c							\
