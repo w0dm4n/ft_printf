@@ -14,17 +14,35 @@
 
 #include "printf.h"
 
-int			flag_s(t_string *string, int i)
+static void	conv_l(t_string *string, wchar_t *tmp)
 {
-	char	*tmp;
+	int n;
 
-	tmp = NULL;
-	tmp = get_string(string);
 	if (tmp == NULL)
 	{
 		add_string(string, "(null)", 1);
-		return (i + 1);
+		return ;
+	}
+	n = -1;
+	while (tmp[++n])
+		add_wchar(string, tmp[n]);
+}
+
+static void	conv_default(t_string *string, char *tmp)
+{
+	if (tmp == NULL)
+	{
+		add_string(string, "(null)", 1);
+		return ;
 	}
 	add_string(string, tmp, 3);
+}
+
+int			flag_s(t_string *string, int i)
+{
+	if (!ft_strncmp(string->converter.type, "l", 1))
+		conv_l(string, get_wstring(string));
+	else
+		conv_default(string, get_string(string));
 	return (i + 1);
 }

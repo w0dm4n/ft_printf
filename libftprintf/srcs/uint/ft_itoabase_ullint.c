@@ -6,19 +6,19 @@
 /*   By: jguyet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 05:17:08 by jguyet            #+#    #+#             */
-/*   Updated: 2015/12/02 05:17:10 by jguyet           ###   ########.fr       */
+/*   Updated: 2016/05/27 18:36:44 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_ztoabase(size_t nbr, char *base)
+char	*ft_itoabase_ullint(unsigned long long int nbr, char *base)
 {
-	char	*res;
-	int		size;
-	size_t	len;
-	size_t	tmp;
+	char					*res;
+	unsigned long long int	size;
+	unsigned long long int	len;
+	unsigned long long int	tmp;
 
 	tmp = nbr;
 	len = 1;

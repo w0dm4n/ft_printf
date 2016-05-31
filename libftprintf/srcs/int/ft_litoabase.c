@@ -17,7 +17,7 @@ char	*ft_litoabase(long int nbr, char *base)
 {
 	char		*res;
 	int			size;
-	int			len;
+	long int	len;
 	long int	tmp;
 
 	tmp = nbr;

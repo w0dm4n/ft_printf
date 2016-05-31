@@ -102,6 +102,7 @@ SRCBASE		=	\
 				int/ft_uitoa_long.c							\
 				int/ft_uitoa_llong.c						\
 				uint/ft_itoabase_uint.c						\
+				uint/ft_itoabase_ullint.c					\
 				uint/ft_itoa_lint.c							\
 				uint/ft_itoabase_lint.c						\
 				uint/ft_itoa_llint.c						\

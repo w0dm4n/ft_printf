@@ -14,7 +14,7 @@
 #include "printf.h"
 #include <stdio.h>
 
-static void	add_sharp(t_string *string, int len, unsigned int tmp)
+static void	add_sharp(t_string *string, int len, unsigned long long int tmp)
 {
 	int	space;
 	int	zero;
@@ -38,16 +38,98 @@ static void	add_sharp(t_string *string, int len, unsigned int tmp)
 	}
 }
 
-int			flag_big_x(t_string *string, int i)
+static void		conv_ll(t_string *string, unsigned long long int tmp)
 {
-	unsigned int		tmp;
-	char				*word;
-	int					len;
+	char *word;
+	int len;
 
-	tmp = va_arg(string->list, unsigned int);
+	word = ft_itoabase_ullint(tmp, "0123456789ABCDEF");
+	len = ft_strlen(word);
+	add_sharp(string, len, tmp);
+	add_string(string, word, 3);
+}
+
+static void		conv_l(t_string *string, unsigned long int tmp)
+{
+	char *word;
+	int len;
+
 	word = ft_itoabase_uint(tmp, "0123456789ABCDEF");
 	len = ft_strlen(word);
 	add_sharp(string, len, tmp);
 	add_string(string, word, 3);
+}
+
+static void		conv_h(t_string *string, unsigned short tmp)
+{
+	char *word;
+	int len;
+
+	word = ft_itoabase_uint(tmp, "0123456789ABCDEF");
+	len = ft_strlen(word);
+	add_sharp(string, len, tmp);
+	add_string(string, word, 3);
+}
+
+static void		conv_hh(t_string *string, unsigned char tmp)
+{
+	char *word;
+	int len;
+
+	word = ft_itoabase_uint(tmp, "0123456789ABCDEF");
+	len = ft_strlen(word);
+	add_sharp(string, len, tmp);
+	add_string(string, word, 3);
+}
+
+static void		conv_z(t_string *string, size_t tmp)
+{
+	char *word;
+	int len;
+
+	word = ft_itoabase_uint(tmp, "0123456789ABCDEF");
+	len = ft_strlen(word);
+	add_sharp(string, len, tmp);
+	add_string(string, word, 3);
+}
+
+static void		conv_j(t_string *string, intmax_t tmp)
+{
+	char *word;
+	int len;
+
+	word = ft_itoabase_uint(tmp, "0123456789ABCDEF");
+	len = ft_strlen(word);
+	add_sharp(string, len, tmp);
+	add_string(string, word, 3);
+}
+
+static void		conv_default(t_string *string, unsigned int tmp)
+{
+	char *word;
+	int len;
+
+	word = ft_itoabase_uint(tmp, "0123456789ABCDEF");
+	len = ft_strlen(word);
+	add_sharp(string, len, tmp);
+	add_string(string, word, 3);
+}
+
+int			flag_big_x(t_string *string, int i)
+{
+	if (!ft_strncmp(string->converter.type, "ll", 2))
+		conv_ll(string, get_ulong_long_int(string));
+	else if (!ft_strncmp(string->converter.type, "l", 1))
+		conv_l(string, get_ulong_int(string));
+	else if (!ft_strncmp(string->converter.type, "hh", 2))
+		conv_hh(string, (unsigned char)get_uint(string));
+	else if (!ft_strncmp(string->converter.type, "h", 1))
+		conv_h(string, get_ushort(string));
+	else if (!ft_strncmp(string->converter.type, "z", 1))
+		conv_z(string, get_size_t(string));
+	else if (!ft_strncmp(string->converter.type, "j", 1))
+		conv_j(string, get_intmax_t(string));
+	else
+		conv_default(string, get_uint(string));
 	return (i + 1);
 }

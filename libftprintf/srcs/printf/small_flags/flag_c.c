@@ -14,12 +14,21 @@
 
 #include "printf.h"
 
+static void	conv_l(t_string *string, wchar_t tmp)
+{
+	add_wchar(string, tmp);
+}
+
+static void	conv_default(t_string *string, char tmp)
+{
+	add_char(string, tmp);
+}
+
 int			flag_c(t_string *string, int i)
 {
-	char	tmp;
-
-	tmp = 0;
-	tmp = get_char(string);
-	add_char(string, tmp);
+	if (!ft_strncmp(string->converter.type, "l", 1))
+		conv_l(string, get_wchar(string));
+	else
+		conv_default(string, get_char(string));
 	return (i + 1);
 }

@@ -17,7 +17,7 @@ char	*ft_llitoabase(long long int nbr, char *base)
 {
 	char			*res;
 	int				size;
-	int				len;
+	long long int	len;
 	long long int	tmp;
 
 	tmp = nbr;

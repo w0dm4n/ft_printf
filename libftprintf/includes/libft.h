@@ -141,6 +141,7 @@ char				*ft_stoabase(short nbr, char *base);
 
 char*				ft_itoabase_uint(unsigned long int nbr, char *base);
 char				*ft_itoabase_lint(long int nbr, char *base);
+char				*ft_itoabase_ullint(unsigned long long int nbr, char *base);
 
 /*
 ** LONG INT

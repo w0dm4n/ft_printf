@@ -24,7 +24,7 @@ static void		conv_h(t_string *string, unsigned short tmp)
 	add_uint_long_long(string, tmp);
 }
 
-static void		conv_hh(t_string *string, unsigned char tmp)
+static void		conv_hh(t_string *string, unsigned int tmp)
 {
 	add_uint_long_long(string, tmp);
 }
@@ -49,7 +49,7 @@ int				flag_big_u(t_string *string, int i)
 	if (!ft_strncmp(string->converter.type, "ll", 2))
 		conv_ll(string, get_ulong_long_int(string));
 	else if (!ft_strncmp(string->converter.type, "hh", 2))
-		conv_hh(string, (unsigned char)get_uint(string));
+		conv_hh(string, get_uint(string));
 	else if (!ft_strncmp(string->converter.type, "h", 1))
 		conv_h(string, get_ushort(string));
 	else if (!ft_strncmp(string->converter.type, "z", 1))
