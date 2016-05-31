@@ -145,7 +145,7 @@ static int	flag_z(t_string *string, int i)
 	if (string->sub_flags & SUB_SUP)
 		if (tmp > 0)
 			add_string(string, "+", 1);
-	add_string(string, ft_itoabase(tmp, "0123456789"), 3);
+	add_string(string, ft_itoa_llint(tmp), 3);
 	return (i + 1);
 }
 
