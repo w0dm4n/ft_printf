@@ -37,3 +37,19 @@ void		add_uint_long(t_string *string, unsigned long int s)
 	n = ft_uitoa_long(s);
 	add_string(string, n, 1);
 }
+
+void		add_ushort(t_string *string, int s)
+{
+	char *n;
+
+	n = ft_itoa(s);
+	add_string(string, n, 1);
+}
+
+void		add_uint_long_long(t_string *string, unsigned long long int s)
+{
+	char *n;
+
+	n = ft_uitoa_llong(s);
+	add_string(string, n, 1);
+}

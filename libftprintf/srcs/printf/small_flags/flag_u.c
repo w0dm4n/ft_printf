@@ -14,11 +14,56 @@
 
 #include "printf.h"
 
+static void		conv_ll(t_string *string, unsigned long long int tmp)
+{
+	add_uint_long_long(string, tmp);
+}
+
+static void		conv_l(t_string *string, unsigned long int tmp)
+{
+	add_uint_long(string, tmp);
+}
+
+static void		conv_h(t_string *string, unsigned short tmp)
+{
+	add_uint_long_long(string, tmp);
+}
+
+static void		conv_hh(t_string *string, unsigned char tmp)
+{
+	add_uint_long_long(string, tmp);
+}
+
+static void		conv_z(t_string *string, size_t tmp)
+{
+	add_uint_long_long(string, tmp);
+}
+
+static void		conv_j(t_string *string, intmax_t tmp)
+{
+	add_uint_long_long(string, tmp);
+}
+
+static void		conv_default(t_string *string, unsigned int tmp)
+{
+	add_uint(string, tmp);
+}
+
 int				flag_u(t_string *string, int i)
 {
-	unsigned int		tmp;
-
-	tmp = va_arg(string->list, unsigned int);
-	add_uint(string, tmp);
+	if (!ft_strncmp(string->converter.type, "ll", 2))
+		conv_ll(string, get_ulong_long_int(string));
+	else if (!ft_strncmp(string->converter.type, "l", 1))
+		conv_l(string, get_ulong_int(string));
+	else if (!ft_strncmp(string->converter.type, "hh", 2))
+		conv_hh(string, (unsigned char)get_uint(string));
+	else if (!ft_strncmp(string->converter.type, "h", 1))
+		conv_h(string, get_ushort(string));
+	else if (!ft_strncmp(string->converter.type, "z", 1))
+		conv_z(string, get_size_t(string));
+	else if (!ft_strncmp(string->converter.type, "j", 1))
+		conv_j(string, get_intmax_t(string));
+	else
+		conv_default(string, get_uint(string));
 	return (i + 1);
 }

@@ -29,7 +29,17 @@ short				get_short(t_string *t)
 	return ((short)va_arg(t->list, int));
 }
 
+unsigned short		get_ushort(t_string *t)
+{
+	return ((unsigned short)va_arg(t->list, unsigned int));
+}
+
 size_t				get_size_t(t_string *t)
 {
 	return ((size_t)va_arg(t->list, size_t));
+}
+
+intmax_t			get_intmax_t(t_string *t)
+{
+	return ((intmax_t)va_arg(t->list, intmax_t));
 }

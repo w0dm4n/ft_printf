@@ -64,6 +64,7 @@ void					add_int(t_string *string, int s);
 void					add_uint(t_string *string, unsigned int s);
 void					add_uint_long(t_string *string, unsigned long int s);
 void					add_long_int(t_string *string, long int s);
+void					add_uint_long_long(t_string *string, unsigned long long int s);
 /*
 **	SUBFLAGS
 */
@@ -106,7 +107,9 @@ char					*get_string(t_string *t);
 wchar_t					*get_wstring(t_string *t);
 double					get_double(t_string *t);
 short					get_short(t_string *t);
+unsigned short			get_ushort(t_string *t);
 size_t					get_size_t(t_string *t);
+intmax_t				get_intmax_t(t_string *t);
 
 /*
 **	ADD
