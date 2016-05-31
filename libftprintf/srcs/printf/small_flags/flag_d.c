@@ -36,7 +36,7 @@ static int	flag_ll(t_string *string, int i)
 	tmp = (long long int)va_arg(string->list, long long int);
 	len = size_to(tmp);
 	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
-		&& tmp > -1)
+		&& tmp > -1 && !(string->sub_flags & SUB_SUP))
 		add_string(string, " ", 1);
 	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
 		& SUB_SPACE && sub_num))
@@ -61,7 +61,7 @@ static int flag_l(t_string *string, int i)
 	tmp = (long int)va_arg(string->list, long int);
 	len = size_to(tmp);
 	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
-		&& tmp > -1)
+		&& tmp > -1 && !(string->sub_flags & SUB_SUP))
 		add_string(string, " ", 1);
 	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
 		& SUB_SPACE && sub_num))
@@ -86,7 +86,7 @@ static int	flag_hh(t_string *string, int i)
 	tmp = (char)va_arg(string->list, int);
 	len = size_to(tmp);
 	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
-		&& tmp > -1)
+		&& tmp > -1 && !(string->sub_flags & SUB_SUP))
 		add_string(string, " ", 1);
 	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
 		& SUB_SPACE && sub_num))
@@ -111,7 +111,7 @@ static int	flag_h(t_string *string, int i)
 	tmp = (short)va_arg(string->list, int);
 	len = size_to(tmp);
 	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
-		&& tmp > -1)
+		&& tmp > -1 && !(string->sub_flags & SUB_SUP))
 		add_string(string, " ", 1);
 	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
 		& SUB_SPACE && sub_num))
@@ -135,7 +135,8 @@ static int	flag_z(t_string *string, int i)
 		sub_num = ft_atoi(string->sub_num);
 	tmp = (size_t)va_arg(string->list, size_t);
 	len = size_to(tmp);
-	if (string->sub_flags & SUB_SPACE && sub_num == 0)
+	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
+		&& !(string->sub_flags & SUB_SUP))
 		add_string(string, " ", 1);
 	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
 		& SUB_SPACE && sub_num))
@@ -144,7 +145,7 @@ static int	flag_z(t_string *string, int i)
 	if (string->sub_flags & SUB_SUP)
 		if (tmp > 0)
 			add_string(string, "+", 1);
-	add_string(string, ft_itoa_lint(tmp), 3);
+	add_string(string, ft_itoabase(tmp, "0123456789"), 3);
 	return (i + 1);
 }
 
@@ -159,8 +160,9 @@ static int	flag_default(t_string *string, int i)
 		sub_num = ft_atoi(string->sub_num);
 	tmp = get_int(string);
 	len = size_to(tmp);
+	
 	if (string->sub_flags & SUB_SPACE && sub_num == 0 \
-		&& tmp > -1)
+		&& tmp > -1 && !(string->sub_flags & SUB_SUP))
 		add_string(string, " ", 1);
 	if (string->sub_flags & SUB_SHARP || (string->sub_flags \
 		& SUB_SPACE && sub_num))

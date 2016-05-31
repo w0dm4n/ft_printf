@@ -22,7 +22,9 @@ int		main(void)
 	char *c;
 
 	c = NULL;
-	printf("%O\n", 42);
+	//printf("%O\n", 42);
+	//ft_printf("{red}         test          {default}       coucou");
+	ft_printf("% +10d", 123);
 	//ft_printf("%hhd", (131));
 	//ft_printf("%hhd", (131));
 	/*ft_printf("res :\t%d\n", ft_printf("{% c}\n", 0));
