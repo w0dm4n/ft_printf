@@ -185,6 +185,8 @@ int			flag_d(t_string *string, int i)
 		return (flag_h(string, i));
 	else if (!ft_strncmp("z", string->converter.type, 1))
 		return (flag_z(string, i));
+	else if (!ft_strncmp("j", string->converter.type, 1))
+		return (flag_ll(string, i));
 	else
 		return (flag_default(string, i));
 }
