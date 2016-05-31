@@ -82,11 +82,11 @@ int			select_converter_one(t_string *string, int i)
 	else if (!ft_strncmp("hh", FLAG, 2) && (i = i + 2))
 	{
 		string->converter.type[0] = 'h';
-		string->converter.type[1] = '\0';
+		string->converter.type[1] = 'h';
 	}
 	else if (!ft_strncmp("h", FLAG, 1) && (i = i + 1))
 	{
-		string->converter.type[0] = 'j';
+		string->converter.type[0] = 'h';
 		string->converter.type[1] = '\0';
 	}
 	else

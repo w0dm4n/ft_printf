@@ -64,7 +64,7 @@ static void		conv_default(t_string *string, long int tmp)
 {
 	char *word;
 
-	word = ft_litoabase(tmp, "01234567");
+	word = ft_itoabase_lint(tmp, "01234567");
 	if (tmp != 0)
 		add_sharp(string);
 	add_string(string, word, 3);
